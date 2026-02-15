@@ -22,7 +22,7 @@ export default function Home() {
           </p>
 
           <p className=" text-slate-400 mb-8 max-w-xl">
-            Bult SaaS platforms, automation systems, analytics pipelines, and business infrastructure used in real environments
+            Built SaaS platforms, automation systems, analytics pipelines, and business infrastructure used in real environments
           </p>
 
           <div className="flex gap-4">
