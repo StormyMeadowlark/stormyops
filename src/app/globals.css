@@ -24,3 +24,31 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.stormyops-bg {
+  /* Base */
+  background:
+    /* TOP LEFT: faded blue */
+    radial-gradient(900px 600px at 12% 18%,
+      rgba(59,130,246,0.45) 0%,
+      rgba(59,130,246,0.18) 35%,
+      rgba(0,0,0,0) 70%),
+
+    /* TOP RIGHT: faded purple */
+    radial-gradient(900px 600px at 78% 22%,
+      rgba(139,92,246,0.45) 0%,
+      rgba(139,92,246,0.18) 35%,
+      rgba(0,0,0,0) 70%),
+
+    /* BOTTOM CENTER: faded slate */
+    radial-gradient(900px 600px at 50% 88%,
+      rgba(148,163,184,0.20) 0%,
+      rgba(148,163,184,0.10) 35%,
+      rgba(0,0,0,0) 70%),
+
+    /* Overall dark gradient */
+    linear-gradient(135deg,
+      #0b1220 0%,
+      #070b16 45%,
+      #05060c 100%);
+}
