@@ -21,133 +21,179 @@ type Project = {
 
 const projects: Project[] = [
   {
-    title: "Skynetrix",
+    title: "Skynetrix: Multi-Tenant SaaS Backend Architecture",
     description:
-      "Multi-tenant SaaS platform managing operational workflows from quote to payment across role-based users.",
+      "Designed and implemented a backend-first multi-tenant SaaS architecture for automotive shop operations. Built JWT-based RBAC, usage-based billing, Stripe payment orchestration, and Dockerized services with an early-stage Heroku deployment.",
 
     badges: [
       { label: "Multi-Tenant SaaS" },
-      { label: "RBAC Architecture" },
-      { label: "Payment Orchestration" },
-      { label: "Production Deployed" },
+      { label: "JWT RBAC" },
+      { label: "Usage-Based Billing" },
+      { label: "Dockerized Services" },
+      { label: "Stripe Integration" },
     ],
 
     highlights: [
       {
-        title: "Operational Workflow",
-        body: "Modeled full lifecycle: quote → ticket → assignment → completion → invoice → payment.",
+        title: "Tenant & Role Architecture",
+        body: "Implemented JWT-based RBAC across Platform Admin, Tenant Admin, Admin, Shop, and User roles with tenant-isolated data modeling and centralized API gateway enforcement.",
       },
       {
-        title: "Role Architecture",
-        body: "Distinct experiences for owner, technician, customer, and super admin.",
+        title: "Operational Workflow Modeling",
+        body: "Modeled full service lifecycle (job catalog → estimate → quote → repair order → invoice → payment) with vehicle management and shop/group membership structure.",
       },
       {
-        title: "Payment Infrastructure",
-        body: "Stripe setup intents, webhook reconciliation, async event handling.",
+        title: "Billing & Async Infrastructure",
+        body: "Designed usage-based billing for shops using Redis + BullMQ, integrated Stripe for shop subscriptions, customer charges, and refund processing, and containerized services with Docker for structured deployment.",
       },
     ],
 
     owned:
-      "System design, workflow modeling, backend services, RBAC implementation, and Stripe payment orchestration.",
+      "Owned system architecture, API gateway design, RBAC enforcement, billing logic, Stripe integration, Redis/BullMQ usage tracking, Dockerization, and initial Heroku deployment.",
 
-    stack: ["Node", "Express", "MongoDB", "Redis", "Stripe"],
+    stack: ["Node", "Express", "MongoDB", "Redis", "BullMQ", "Stripe", "Docker", "Heroku"],
   },
 
   {
-    title: "VIN Vision",
+    title: "VIN Vision: VIN OCR & Decode Automation Service",
     description:
-      "Computer vision service converting vehicle images into structured VIN data to automate intake.",
+      "Built a VIN extraction and decoding service that converts uploaded vehicle images into structured vehicle data using Google Cloud Vision API and the NHTSA VIN Decoder API.",
 
     badges: [
-      { label: "Computer Vision" },
-      { label: "Automation Pipeline" },
+      { label: "Google Cloud Vision API" },
+      { label: "Image Preprocessing" },
+      { label: "OCR Automation" },
+      { label: "API Integration" },
       { label: "Backend Service" },
     ],
 
     highlights: [
       {
-        title: "Image → Data Pipeline",
-        body: "Processed uploaded vehicle images and extracted VIN data into structured backend systems.",
+      title: "Image Preprocessing",
+      body: "Implemented image adjustments (noise reduction, contrast enhancement) prior to OCR to improve VIN recognition accuracy. Required correct image orientation for reliable extraction.",
       },
       {
-        title: "Error Reduction",
-        body: "Reduced manual entry errors and intake friction through automation.",
+        title: "Image → VIN Extraction",
+        body: "Processed uploaded vehicle images using Google Cloud Vision OCR to extract VIN characters.",
+      },
+      {
+        title: "VIN Decoding Pipeline",
+        body: "Sent validated VIN to the NHTSA VIN Decoder API to return structured vehicle data including year, make, and model.",
       },
       {
         title: "Service Architecture",
-        body: "Designed modular backend service callable from external systems.",
+        body: "Built a modular Node.js service using Multer for file uploads, enabling automated intake integration into backend systems.",
       },
     ],
 
     owned:
-      "Backend service design, image processing pipeline integration, and structured data validation logic.",
+      "Image preprocessing pipeline, OCR integration, VIN validation logic, NHTSA API orchestration, Multer file handling, and backend service design.",
 
-    stack: ["Python", "Computer Vision", "Node", "APIs"],
+    stack: ["JavaScript", "Node", "Google Cloud Vision API", "NHTSA API", "Multer"],
   },
 
   {
-    title: "HEM Systems",
+    title: "HEM Systems: Full-Stack Marketing & Inventory Platform",
+
     description:
-      "Sales and inventory management system supporting real vehicle lifecycle transitions.",
+      "Designed and deployed a full-stack marketing website and authenticated admin system for managing live vehicle inventory, customer inquiries, and operational workflows.",
 
     badges: [
-      { label: "Admin Dashboard" },
-      { label: "Inventory Workflow" },
-      { label: "Production Environment" },
+    { label: "Full-Stack MERN" },
+    { label: "JWT Authentication" },
+    { label: "Admin Dashboard" },
+    { label: "Live Deployment" },
+    { label: "Cloud Storage" },
     ],
 
     highlights: [
       {
-        title: "Inventory Management",
-        body: "CRUD workflows for vehicle intake, listing, and status transitions.",
+        title: "Marketing Website + Admin System",
+        body: "Built a public-facing vehicle sales website with authenticated JWT-based RBAC backend allowing admins to securely log in and manage inventory listings.",
       },
       {
-        title: "Lifecycle States",
-        body: "Modeled vehicle state changes: available → pending → sold.",
+        title: "Vehicle Inventory Workflow",
+        body: "Implemented vehicle lifecycle management with CRUD operations, state transitions, and controlled listing updates.",
       },
       {
-        title: "Operational Deployment",
-        body: "System used in live business environment to manage real inventory.",
+        title: "Image Upload & Cloud Storage",
+        body: "Integrated Multer for file uploads with enforced limits (max 40 files and size restrictions), storing vehicle images on a DigitalOcean Droplet.",
+      },
+      {
+        title: "Contact & Email Automation",
+        body: "Built contact form submission pipeline using Nodemailer and SendGrid for transactional messaging and inquiry routing.",
+      },
+      {
+        title: "Deployment & Monitoring",
+        body: "Deployed frontend and backend via Heroku and Firebase, integrated Google Analytics for traffic and engagement tracking.",
       },
     ],
 
     owned:
-      "Frontend dashboard design, backend CRUD services, and operational workflow modeling.",
+      "End-to-end system design including frontend UI, backend API development, JWT authentication, file upload handling, cloud storage integration, email automation, analytics tracking, and production deployment.",
 
-    stack: ["React", "Node", "MongoDB"],
+    stack: [    "React",
+    "Node.js",
+    "Express",
+    "MongoDB",
+    "JWT",
+    "Multer",
+    "DigitalOcean",
+    "Heroku",
+    "Firebase",
+    "SendGrid",
+    "Nodemailer",
+    "Google Analytics"],
   },
 
   {
-    title: "Growth Ops",
-    description:
-      "End-to-end growth and brand system execution across positioning, campaigns, and analytics.",
+  title: "Growth Ops: Full-Funnel Marketing & Revenue Attribution",
+  description:
+    "Led end-to-end marketing strategy and execution for HEM Automotive, serving as the sole marketing function responsible for brand identity, paid acquisition, content, and revenue tracking.",
 
-    badges: [
-      { label: "Brand Strategy" },
-      { label: "Campaign Execution" },
-      { label: "Multi-Channel Growth" },
-    ],
+  badges: [
+    { label: "Paid Acquisition" },
+    { label: "Revenue Attribution" },
+    { label: "Brand Development" },
+    { label: "Full-Funnel Strategy" },
+  ],
 
-    highlights: [
-      {
-        title: "Brand System",
-        body: "Developed messaging framework and visual identity from zero.",
-      },
-      {
-        title: "Campaign Execution",
-        body: "Launched and managed social, paid ads, and video initiatives.",
-      },
-      {
-        title: "Operational Consistency",
-        body: "Unified messaging across web, content, ads, and offline assets.",
-      },
-    ],
+  highlights: [
+    {
+      title: "Brand & Positioning",
+      body: "Designed company logo, developed brand identity and tagline, wrote all website copy, and established consistent messaging across digital and offline channels.",
+    },
+    {
+      title: "Paid Advertising & Lead Generation",
+      body: "Managed Facebook, Google, and Yelp ad campaigns; optimized targeting and messaging to drive inbound calls and service bookings.",
+    },
+    {
+      title: "Revenue Attribution",
+      body: "Tracked inbound calls and campaign performance to tie specific advertising efforts to increased shop revenue.",
+    },
+    {
+      title: "Content & Social Execution",
+      body: "Produced video content and graphics for YouTube, Facebook, and TikTok; managed social media presence and engagement.",
+    },
+    {
+      title: "Market Research & Planning",
+      body: "Conducted competitive market research and developed marketing plans supporting business relocation and growth strategy.",
+    },
+  ],
 
-    owned:
-      "Positioning strategy, campaign execution, analytics tracking, and full brand system implementation.",
+  owned:
+    "Owned brand development, paid media strategy, copywriting, campaign execution, content production, analytics tracking, competitive research, and revenue attribution.",
 
-    stack: ["Strategy", "Content", "Ads", "Analytics"],
-  },
+  stack: [
+    "Facebook Ads",
+    "Google Ads",
+    "Yelp Ads",
+    "Google Analytics",
+    "Content Production",
+    "Copywriting",
+    "Market Research"
+  ],
+},
 ]
 
 const capabilityLanes: Lane[] = [
@@ -269,13 +315,18 @@ export default function Home() {
 
           <div className="flex gap-4">
             
-            <button className="bg-[#6B25BC] hover:bg-[#51218F] px-6 py-3 rounded-lg font-semibold transition">
+            <a
+            href="#work"
+            className="bg-[#6B25BC] hover:bg-[#51218F] px-6 py-3 rounded-lg font-semibold transition">
               View My Work
-            </button>
+            </a>
 
-            <button className="border border-slate-600 hover:border-slate-400 px-6 py-3 rounded-lg transition">
+            <a 
+            href="/Herken_Resume_Implementation_Specialist.pdf"
+            download
+            className="border border-slate-600 hover:border-slate-400 px-6 py-3 rounded-lg transition">
               Download Resume
-            </button>
+            </a>
 
           </div>
 
@@ -296,13 +347,12 @@ export default function Home() {
     className="relative z-10 max-h-[640px] object-contain"
   />
 </div>
-
       </div>
       {/* Featured Work */}
       <section id= "work" className="max-w-7xl mx-auto px-6 py-24">
         <h3 className="text-xl font-semibold text-white">Featured Work</h3>
                 <p className="mt-2 text-slate-400">
-Real systems shipped across SaaS, automation, analytics, and growth infrastructure.
+Production SaaS systems shipped end-to-end — from architecture to deployment.
         </p>
         <p className="mt-2 text-slate-400">
 Tip — click the purple dot to skim.

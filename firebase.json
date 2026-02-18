@@ -1,6 +1,14 @@
 {
   "hosting": {
-    "public": "public",
+    "public": "out",
+    "headers": [
+      {
+        "source": "/Ashlee-Herken-Resume.pdf",
+        "headers": [
+          { "key": "Content-Disposition", "value": "attachment" }
+        ]
+      }
+    ],
     "ignore": [
       "firebase.json",
       "**/.*",
