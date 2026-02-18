@@ -8,10 +8,12 @@ import FlipCard from "@/components/FlipCard"
 import CapabilitiesLanes, { Lane } from "@/components/CapabilitiesLanes"
 import Timeline, { TimelineMilestone } from "@/components/Timeline"
 
+type Badge = { label: string }
+
 type Project = {
   title: string
   description: string
-  badges: any
+  badges?: Badge[]
   highlights: any
   owned: string
   stack: string[]
