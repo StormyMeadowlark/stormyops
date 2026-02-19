@@ -30,7 +30,7 @@ export default function FlipCard({
 
           <ul className="mt-3 space-y-1 text-sm text-slate-300">
             {front.map((b) => (
-              <li key={b}>• {b}</li>
+              <li key={b}  className="leading-snug line-clamp-2">• {b}</li>
             ))}
           </ul>
         </div>
@@ -41,7 +41,7 @@ export default function FlipCard({
 
           <ul className="mt-3 space-y-1 text-sm text-slate-300">
             {back.map((b) => (
-              <li key={b}>• {b}</li>
+              <li key={b}  className="leading-snug line-clamp-2">• {b}</li>
             ))}
           </ul>
         </div>
