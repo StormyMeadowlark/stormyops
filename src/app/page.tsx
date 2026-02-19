@@ -399,7 +399,7 @@ I lead implementation by designing structured systems that move from ambiguity t
  I have operated across business and technical environments, aligning implementation with revenue impact, user adoption, and long-term maintainability. Whether directing paid acquisition tied to measurable outcomes or architecting backend systems with RBAC, billing logic, and service integrations, I own delivery end-to-end. My background is diverse, but not fragmented — it compounds into structured execution and practical leadership across complex systems.
   </p>
 </div>
-  <div className="mt-8 grid gap-4">
+  <div className="mt-8 grid gap-8">
     <FlipCard
   frontTitle="Requirements & Systems Design"
   frontBullets={[
