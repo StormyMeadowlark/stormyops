@@ -17,7 +17,7 @@ export default function FlipCard({
   const back = backBullets.slice(0, 3)
 
   return (
-    <div className="group [perspective:1200px]">
+    <div className="group">
       <div className="relative h-48 sm:h-48 rounded-2xl transition-transform duration-500 [transform-style:preserve-3d] group-hover:[transform:rotateY(180deg)]">
         {/* FRONT */}
         <div className="absolute inset-0 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md p-5 [backface-visibility:hidden]">
