@@ -200,88 +200,83 @@ const capabilityLanes: Lane[] = [
   {
     key: "implementation",
     label: "Implementation",
-    subtitle: "Kickoff → go-live → adoption",
+    subtitle: "Discovery → launch → adoption",
     summary:
-      "I translate messy requirements into structured workflows, clear milestones, and systems users actually adopt.",
+      "I turn ambiguity into a delivery plan: clear requirements, aligned stakeholders, and workflows that hold up after go-live.",
     bullets: [
-      "Discovery + workflow mapping + success criteria",
-      "Milestones, risk tracking, stakeholder coordination",
-      "Training, documentation, and go-live stabilization",
+      "Discovery, workflow mapping, and success criteria",
+      "Milestones, risks, dependencies, and stakeholder alignment",
+      "Enablement: training, documentation, and stabilization",
     ],
     tags: ["Discovery", "Enablement", "Go-live", "Stakeholders", "QA"],
   },
   {
     key: "engineering",
     label: "Engineering",
-    subtitle: "Build the system, not just the UI",
+    subtitle: "Systems that scale",
     summary:
-      "I design backend services and workflows aligned to real operational needs—not just interfaces.",
+      "I build operational backends that support real workflows—permissions, billing logic, automation, and reliability.",
     bullets: [
-      "API/service design around operations",
-      "RBAC + multi-tenant patterns",
-      "Automation + observability mindset",
+      "API/service design driven by operational needs",
+      "JWT RBAC + multi-tenant patterns and governance",
+      "Automation, queues, logging, and observability mindset",
     ],
     tags: ["Node", "REST", "RBAC", "Multi-tenant", "Queues", "Logging"],
   },
   {
     key: "data",
     label: "Data",
-    subtitle: "Make decisions measurable",
+    subtitle: "Measurement → iteration",
     summary:
-      "I define metrics, capture signals, and build feedback loops that drive iteration.",
+      "I define what ‘success’ means, instrument the system, and turn signals into decisions that improve adoption.",
     bullets: [
-      "Metric definitions + instrumentation planning",
-      "Analysis + reporting for decision-making",
-      "Baseline → test → improve iteration cycles",
+      "Metric definitions and instrumentation planning",
+      "Analysis and reporting for operational decisions",
+      "Baseline → test → iterate improvement loops",
     ],
     tags: ["Python", "SQL", "KPIs", "Dashboards", "Experimentation"],
   },
   {
     key: "growth",
     label: "Growth",
-    subtitle: "Positioning → execution → learning",
+    subtitle: "Messaging → performance",
     summary:
-      "I turn positioning into consistent messaging and campaigns backed by performance data.",
+      "I connect positioning to execution—consistent messaging, campaign systems, and performance feedback loops.",
     bullets: [
-      "Messaging clarity + offer structure",
-      "Content, ads, and campaign systems",
-      "Performance tracking + optimization loops",
+      "Positioning, offer clarity, and messaging structure",
+      "Content, ads, and repeatable campaign execution",
+      "Attribution, performance tracking, and optimization",
     ],
     tags: ["Messaging", "Content", "Ads", "Video", "Analytics"],
   },
 ]
 
 const timelineMilestones: TimelineMilestone[] = [
-  {
-    date: "Jul 2014",
-    title: "Highland Community College",
-    detail: "Associate of Arts — General Studies",
-  },
-  {
-    date: "May 2018",
-    title: "Washburn University",
-    detail: "B.S. — Molecular Biology & Biotechnology",
-  },
-  {
-    date: "Aug 2021",
-    title: "Applied Statistics",
-    detail: "Graduate Certificate — advanced stats foundation + analytics tooling",
-  },
-  {
-    date: "May 2023",
-    title: "Leadership Program",
-    detail: "Graduate Student Leadership Development Program",
-  },
-  {
-    date: "Aug 2023",
-    title: "Kansas State University",
-    detail: "Doctoral coursework and research",
-  },
-  {
-    date: "Nov 2023",
-    title: "Stormy Meadowlark",
-    detail: "Founded — systems, marketing, and engineering delivery for real clients",
-  },
+{
+  date: "Aug 2014 - May 2018",
+  title: "Scientific Foundation",
+  detail: "Associate → B.S. in Molecular Biology & Biotechnology (Washburn University)",
+},
+{
+  date: "Aug 2021",
+  title: "Applied Statistics & Analytics",
+  detail: "Graduate Certificate — statistical modeling, experimentation, and data-driven decision frameworks",
+},
+{
+  date: "May 2023",
+  title: "Leadership Development",
+  detail: "Formal training in team dynamics, stakeholder communication, and structured decision-making",
+},
+{
+  date: "Aug 2023",
+  title: "Advanced Research & Systems Modeling",
+  detail: "Doctoral-level research and structured experimentation at Kansas State University",
+},
+{
+  date: "Nov 2023",
+  title: "Stormy Meadowlark",
+  detail: "Founded — led full-stack system design, marketing execution, and operational delivery for live clients",
+},
 ]
 
 
@@ -395,45 +390,60 @@ Tip — click the purple dot to skim.
 {/* RIGHT: Text */}
 <div>
   <h3 className="text-2xl font-semibold text-white">About</h3>
-
-  <p className="mt-4 text-slate-300 leading-relaxed max-w-xl">
-    I build and implement real operational systems. My background spans science, analytics, and growth —
-    so I’m strongest owning delivery end-to-end: discovery → build → launch → iterate.
+<div className="mt-4 text-slate-300 leading-relaxed max-w-2xl">
+  <p>
+I lead implementation by designing structured systems that move from ambiguity to execution with clarity. My foundation in science shaped how I approach complex problems: define assumptions, model workflows, validate outcomes, and iterate based on evidence. That analytical discipline evolved into applied statistics, operational modeling, and ultimately system architecture — where requirements become scalable, role-aware solutions.
   </p>
-
+  <br></br>
+  <p>
+ I have operated across business and technical environments, aligning implementation with revenue impact, user adoption, and long-term maintainability. Whether directing paid acquisition tied to measurable outcomes or architecting backend systems with RBAC, billing logic, and service integrations, I own delivery end-to-end. My background is diverse, but not fragmented — it compounds into structured execution and practical leadership across complex systems.
+  </p>
+</div>
   <div className="mt-8 grid gap-4">
     <FlipCard
-      frontTitle="Scientist"
-      frontSubtitle="Hypothesis → evidence"
-      backTitle="Analyst"
-      bullets={[
-        "Stat modeling + experimentation mindset",
-        "Turn messy data into decisions",
-        "Measure outcomes and iterate",
-      ]}
-    />
+  frontTitle="Requirements & Systems Design"
+  frontBullets={[
+    "Translate ambiguity into structured requirements",
+    "Architect multi-role workflows",
+    "Establish validation and governance checkpoints",
+  ]}
+  backTitle="Applied in Skynetrix Architecture"
+  backBullets={[
+    "Designed tenant-isolated model with JWT-based RBAC",
+    "Modeled quote → repair order → invoice → payment lifecycle",
+    "Implemented usage-based billing with Redis + BullMQ tracking",
+  ]}
+/>
 
-    <FlipCard
-      frontTitle="Marketer"
-      frontSubtitle="Positioning → execution"
-      backTitle="Operator"
-      bullets={[
-        "Owned campaigns + systems in real environments",
-        "Built repeatable processes (not one-offs)",
-        "Focused on time-to-value + adoption",
-      ]}
-    />
+<FlipCard
+  frontTitle="Adoption & Business Execution"
+  frontBullets={[
+    "Align implementation with revenue drivers",
+    "Reduce friction across operational roles",
+    "Optimize for time-to-value and sustained usage",
+  ]}
+  backTitle="Applied in HEM Automotive Growth"
+  backBullets={[
+    "Directed paid acquisition across Facebook, Google, and Yelp",
+    "Tied inbound call tracking to revenue performance",
+    "Conducted competitive research to inform relocation strategy",
+  ]}
+/>
 
-    <FlipCard
-      frontTitle="Engineer"
-      frontSubtitle="Build the system"
-      backTitle="Implementer"
-      bullets={[
-        "Translate requirements into shipped workflows",
-        "Docs, training, and launch support",
-        "Make it usable, measurable, and scalable",
-      ]}
-    />
+<FlipCard
+  frontTitle="Implementation Leadership"
+  frontBullets={[
+    "Own delivery from discovery through deployment",
+    "Design scalable, role-aware system architecture",
+    "Coordinate integrations across services",
+  ]}
+  backTitle="Applied Across Delivered Systems"
+  backBullets={[
+    "Built and deployed MERN marketing + inventory platform (JWT admin)",
+    "Implemented Stripe payment and refund logic within backend services",
+    "Containerized with Docker and deployed early-stage versions to Heroku/Firebase",
+  ]}
+/>
   </div>
 </div>
 
@@ -443,8 +453,8 @@ Tip — click the purple dot to skim.
   {/* bridge header */}
 <CapabilitiesLanes
   lanes={capabilityLanes}
-  title="How I Deliver"
-  blurb="Pick a lens. Same operator — different angle depending on what the team needs."
+  title="Delivery Lenses"
+  blurb="Implementation is the throughline. These are the lenses I use to ship systems people adopt."
   defaultActiveKey="implementation"
 />
 </section>

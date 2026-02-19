@@ -43,7 +43,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       onClick={onClose}
     >
       <div
-        className="w-full max-w-3xl rounded-3xl border border-white/10 bg-white-950/90 backdrop-blur-xl p-8 shadow-2xl"
+        className="w-full max-w-3xl max-h-[calc(100vh-3rem)] overflow-y-auto rounded-3xl border border-white/10 bg-white-950/90 backdrop-blur-xl p-8 shadow-2xl"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"

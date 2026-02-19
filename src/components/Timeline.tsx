@@ -17,8 +17,8 @@ type TimelineProps = {
 
 export default function Timeline({
   milestones,
-  title = "Progress",
-  blurb = "My trajectory from science → analytics → leadership → engineering — and the work I’m building now.",
+  title = "From Science to Systems",
+  blurb = "The evolution from scientific analysis to structured system delivery — aligning data, engineering, and adoption.",
   defaultActiveIndex = 0,
 }: TimelineProps) {
   const safeDefault = Math.min(
