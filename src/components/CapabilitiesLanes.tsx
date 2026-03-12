@@ -1,20 +1,10 @@
 "use client"
 
 import { useMemo, useState } from "react"
-
-export type LaneKey = string
-
-export type Lane = {
-  key: LaneKey
-  label: string
-  subtitle: string
-  summary: string
-  bullets: string[]
-  tags: string[]
-}
+import type { CapabilityLane, LaneKey } from "@/types/content"
 
 type CapabilitiesLanesProps = {
-  lanes: Lane[]
+  lanes: CapabilityLane[]
   title?: string
   blurb?: string
   defaultActiveKey?: LaneKey

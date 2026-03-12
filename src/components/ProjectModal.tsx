@@ -1,19 +1,7 @@
 "use client"
 
 import { useEffect } from "react"
-
-type ProjectBadge = { label: string }
-type ProjectHighlight = { title: string; body: string }
-
-export type Project = {
-  title: string
-  description: string
-  badges?: ProjectBadge[]
-  highlights?: ProjectHighlight[]
-  owned?: string
-  stack?: string[]
-  links?: { label: string; href: string }[]
-}
+import type { Project } from "@/types/content"
 
 type ProjectModalProps = {
   project: Project | null

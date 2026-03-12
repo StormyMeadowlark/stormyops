@@ -3,7 +3,7 @@
     "public": "out",
     "headers": [
       {
-        "source": "/Ashlee-Herken-Resume.pdf",
+        "source": "/Herken_Resume_Implementation_Specialist.pdf",
         "headers": [
           { "key": "Content-Disposition", "value": "attachment" }
         ]
@@ -13,12 +13,6 @@
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
-    ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
     ]
   }
 }

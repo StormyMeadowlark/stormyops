@@ -1,12 +1,7 @@
 "use client"
 
 import { useMemo, useState } from "react"
-
-export type TimelineMilestone = {
-  date: string
-  title: string
-  detail: string
-}
+import type { TimelineMilestone } from "@/types/content"
 
 type TimelineProps = {
   milestones: TimelineMilestone[]

@@ -42,10 +42,10 @@ export default function Nav() {
 
         {/* Desktop: links */}
         <div className="hidden md:flex items-center gap-7 text-sm text-slate-300">
-          <a className="hover:text-white transition" href="#work">Work</a>
-          <a className="hover:text-white transition" href="#about">About</a>
-          <a className="hover:text-white transition" href="#progression">Progression</a>
-          <a className="hover:text-white transition" href="#resume">Resume</a>
+          <a className="hover:text-white transition" href="/work">Work</a>
+          <a className="hover:text-white transition" href="/about">About</a>
+          <a className="hover:text-white transition" href="/progression">Progression</a>
+          <a className="hover:text-white transition" href="/resume">Resume</a>
 
           {/* Icons */}
           <a
@@ -74,7 +74,7 @@ export default function Nav() {
             </svg>
           </a>
 
-          <a className="hover:text-white transition" href="#contact">Contact</a>
+          <a className="hover:text-white transition" href="/contact">Contact</a>
         </div>
 
         {/* Mobile: button */}
@@ -134,11 +134,11 @@ export default function Nav() {
 
           <div className="px-5 py-6">
             <div className="grid gap-2 text-base">
-              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="#work">Work</a>
-              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="#about">About</a>
-              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="#progression">Progression</a>
-              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="#resume">Resume</a>
-              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="#contact">Contact</a>
+              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="/work">Work</a>
+              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="/about">About</a>
+              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="/progression">Progression</a>
+              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="/resume">Resume</a>
+              <a onClick={close} className="rounded-xl px-3 py-3 text-slate-200 hover:bg-white/5" href="/contact">Contact</a>
             </div>
 
             <div className="mt-6 pt-6 border-t border-white/10 flex items-center gap-4">
