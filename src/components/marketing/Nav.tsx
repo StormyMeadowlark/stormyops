@@ -33,7 +33,7 @@ export default function Nav() {
 
       <div className="relative max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
         {/* Left: logo */}
-        <a href="#" className="flex items-center gap-3" onClick={close}>
+        <a href="/" className="flex items-center gap-3" onClick={close}>
           <img src="/StormyOps-Logo.png" alt="StormyOps" className="h-16 w-auto" />
           <span className="text-sm tracking-wide text-white/90 font-medium">
             StormyOps
