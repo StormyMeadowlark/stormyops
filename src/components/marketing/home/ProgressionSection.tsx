@@ -1,3 +1,4 @@
+import Section from "@/components/ui/Section"
 import Timeline from "@/components/marketing/Timeline"
 import type { TimelineMilestone } from "@/types/content"
 
@@ -9,8 +10,8 @@ export default function ProgressionSection({
   milestones,
 }: ProgressionSectionProps) {
   return (
-    <section id="progression" className="max-w-7xl mx-auto px-6">
+    <Section id="progression" spacing="tight">
       <Timeline milestones={milestones} defaultActiveIndex={0} />
-    </section>
+    </Section>
   )
 }

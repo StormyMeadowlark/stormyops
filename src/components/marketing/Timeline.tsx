@@ -1,6 +1,8 @@
 "use client"
 
 import { useMemo, useState } from "react"
+import Card from "@/components/ui/Card"
+import SectionHeader from "@/components/ui/SectionHeader"
 import type { TimelineMilestone } from "@/types/content"
 
 type TimelineProps = {
@@ -31,17 +33,14 @@ export default function Timeline({
   if (!milestones?.length || !active) return null
 
   return (
-    <section id="progression" className="max-w-7xl mx-auto px-6 pb-24">
-      <h3 className="text-2xl font-semibold text-white">{title}</h3>
-      <p className="mt-2 text-slate-400 max-w-2xl">{blurb}</p>
+    <>
+      <SectionHeader title={title} description={blurb} />
 
-      <div className="mt-10 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md p-6">
+      <Card className="mt-10 p-6">
         <div className="relative">
-          {/* rail */}
           <div className="absolute left-0 right-0 top-7 h-px bg-white/10" />
 
-          {/* dots row (scrollable on small screens) */}
-          <div className="flex gap-10 overflow-x-auto pb-3 pt-2 snap-x snap-mandatory">
+          <div className="flex snap-x snap-mandatory gap-10 overflow-x-auto pb-3 pt-2">
             {milestones.map((m, idx) => {
               const isActive = idx === activeIndex
               return (
@@ -52,7 +51,6 @@ export default function Timeline({
                   className="relative min-w-[150px] snap-start text-left"
                   aria-pressed={isActive}
                 >
-                  {/* dot */}
                   <div
                     className={[
                       "absolute left-0 top-5 h-4 w-4 rounded-full transition",
@@ -62,7 +60,6 @@ export default function Timeline({
                     ].join(" ")}
                   />
 
-                  {/* labels */}
                   <div className="pl-7">
                     <div className="text-xs text-slate-400">{m.date}</div>
                     <div className="mt-1 text-sm font-semibold text-white">
@@ -75,7 +72,6 @@ export default function Timeline({
           </div>
         </div>
 
-        {/* detail panel */}
         <div className="mt-6 border-t border-white/10 pt-5">
           <div key={`${active.date}-${active.title}`} className="animate-timelineIn">
             <div className="text-xs text-slate-400">{active.date}</div>
@@ -106,11 +102,11 @@ export default function Timeline({
             }
           `}</style>
         </div>
-      </div>
+      </Card>
 
       <p className="mt-3 text-xs text-slate-500">
         Tip: click a milestone • swipe horizontally on mobile
       </p>
-    </section>
+    </>
   )
 }

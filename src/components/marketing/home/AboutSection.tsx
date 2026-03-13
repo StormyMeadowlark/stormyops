@@ -1,4 +1,6 @@
 import FlipCard from "@/components/marketing/FlipCard"
+import Section from "@/components/ui/Section"
+import SectionHeader from "@/components/ui/SectionHeader"
 import type { AboutContent } from "@/types/content"
 
 type AboutSectionProps = {
@@ -7,8 +9,8 @@ type AboutSectionProps = {
 
 export default function AboutSection({ content }: AboutSectionProps) {
   return (
-    <section id="about" className="max-w-7xl mx-auto px-6 py-24">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+    <Section id="about">
+      <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
         <div className="relative flex justify-center">
           <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-blue-500/15 via-slate-950/30 to-violet-500/15 blur-2xl" />
 
@@ -22,9 +24,9 @@ export default function AboutSection({ content }: AboutSectionProps) {
         </div>
 
         <div>
-          <h3 className="text-2xl font-semibold text-white">{content.title}</h3>
+          <SectionHeader title={content.title} />
 
-          <div className="mt-4 text-slate-300 leading-relaxed max-w-2xl space-y-6">
+          <div className="mt-4 max-w-2xl space-y-6 text-slate-300 leading-relaxed">
             {content.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -43,6 +45,6 @@ export default function AboutSection({ content }: AboutSectionProps) {
           </div>
         </div>
       </div>
-    </section>
+    </Section>
   )
 }

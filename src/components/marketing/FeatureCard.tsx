@@ -1,6 +1,7 @@
 "use client"
 
 import Card from "@/components/ui/Card"
+import Badge from "@/components/ui/Badge"
 
 type FeatureCardProps = {
   title: string
@@ -16,10 +17,7 @@ export default function FeatureCard({
   onOpen,
 }: FeatureCardProps) {
   return (
-    <Card
-      interactive
-      className="group relative h-full p-6 shadow-2xl"
-    >
+    <Card interactive className="group relative h-full p-6 shadow-2xl">
       <button
         type="button"
         onClick={onOpen}
@@ -33,12 +31,7 @@ export default function FeatureCard({
       {badges.length > 0 && (
         <div className="mb-4 flex flex-wrap gap-2">
           {badges.map((badge) => (
-            <span
-              key={badge}
-              className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-slate-300"
-            >
-              {badge}
-            </span>
+            <Badge key={badge}>{badge}</Badge>
           ))}
         </div>
       )}

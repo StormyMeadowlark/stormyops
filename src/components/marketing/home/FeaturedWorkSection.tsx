@@ -1,3 +1,4 @@
+import Section from "@/components/ui/Section"
 import SectionHeader from "@/components/ui/SectionHeader"
 import FeatureCard from "@/components/marketing/FeatureCard"
 import type { Project } from "@/types/content"
@@ -12,7 +13,7 @@ export default function FeaturedWorkSection({
   onOpenProject,
 }: FeaturedWorkSectionProps) {
   return (
-    <section id="work" className="mx-auto max-w-7xl px-6 py-24">
+    <Section id="work">
       <SectionHeader
         title="Featured Work"
         description="Production SaaS systems shipped end-to-end — from architecture to deployment."
@@ -31,6 +32,6 @@ export default function FeaturedWorkSection({
           />
         ))}
       </div>
-    </section>
+    </Section>
   )
 }

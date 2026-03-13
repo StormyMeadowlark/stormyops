@@ -18,11 +18,7 @@ export default function SectionHeader({
 }: SectionHeaderProps) {
   return (
     <div className={cn(align === "center" ? "text-center" : "text-left", className)}>
-      {eyebrow ? (
-        <p className="mb-2 text-sm font-medium tracking-wide text-slate-400">
-          {eyebrow}
-        </p>
-      ) : null}
+      {eyebrow ? <p className={textStyles.eyebrow}>{eyebrow}</p> : null}
 
       <h2 className={textStyles.sectionTitle}>{title}</h2>
 

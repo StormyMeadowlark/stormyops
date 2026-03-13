@@ -1,6 +1,9 @@
 "use client"
 
 import { useEffect } from "react"
+import Badge from "@/components/ui/Badge"
+import { cn } from "@/lib/utils/cn"
+import { surfaceStyles } from "@/styles/tokens"
 import type { Project } from "@/types/content"
 
 type ProjectModalProps = {
@@ -27,33 +30,29 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 backdrop-blur-sm p-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-6 backdrop-blur-sm"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-3xl max-h-[calc(100vh-3rem)] overflow-y-auto rounded-3xl border border-white/10 bg-white-950/90 backdrop-blur-xl p-8 shadow-2xl"
+        className={cn(
+          surfaceStyles.modal,
+          "max-h-[calc(100vh-3rem)] w-full max-w-3xl overflow-y-auto p-8"
+        )}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
         aria-label={`${project.title} quick view`}
       >
-        {/* Header */}
-        <div className="flex justify-between items-start gap-6">
+        <div className="flex items-start justify-between gap-6">
           <div className="min-w-0">
-            <h2 className="text-2xl font-semibold text-white truncate">
+            <h2 className="truncate text-2xl font-semibold text-white">
               {project.title}
             </h2>
 
-            {/* Snapshot badges */}
             {hasBadges && (
               <div className="mt-3 flex flex-wrap gap-2">
                 {project.badges!.map((b) => (
-                  <span
-                    key={b.label}
-                    className="px-3 py-1 rounded-full bg-white/5 border border-white/10 text-xs text-slate-200"
-                  >
-                    {b.label}
-                  </span>
+                  <Badge key={b.label}>{b.label}</Badge>
                 ))}
               </div>
             )}
@@ -62,7 +61,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <button
             onClick={onClose}
             aria-label="Close modal"
-            className="shrink-0 rounded-xl border border-white/10 bg-white/5 p-2 text-slate-200 hover:bg-white/10 transition"
+            className="shrink-0 rounded-xl border border-white/10 bg-white/5 p-2 text-slate-200 transition hover:bg-white/10"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -81,21 +80,19 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </button>
         </div>
 
-        {/* One-sentence “what it is / why it matters” */}
         <div className="mt-6">
-          <p className="text-slate-300 leading-relaxed">{project.description}</p>
+          <p className="leading-relaxed text-slate-300">{project.description}</p>
         </div>
 
-        {/* Highlights grid (2–4 blocks recommended) */}
         {hasHighlights && (
           <div className="mt-8 grid gap-4 md:grid-cols-3">
             {project.highlights!.map((h) => (
               <div
                 key={h.title}
-                className="rounded-xl bg-white/5 border border-white/10 p-4"
+                className="rounded-xl border border-white/10 bg-white/5 p-4"
               >
                 <h3 className="text-sm font-semibold text-white">{h.title}</h3>
-                <p className="mt-2 text-xs text-slate-300 leading-relaxed">
+                <p className="mt-2 text-xs leading-relaxed text-slate-300">
                   {h.body}
                 </p>
               </div>
@@ -103,28 +100,21 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
         )}
 
-        {/* Ownership callout */}
         {hasOwned && (
-          <div className="mt-8 rounded-xl bg-gradient-to-r from-blue-500/10 to-violet-500/10 border border-white/10 p-5">
+          <div className="mt-8 rounded-xl border border-white/10 bg-gradient-to-r from-blue-500/10 to-violet-500/10 p-5">
             <h3 className="text-sm font-semibold text-white">What I Owned</h3>
-            <p className="mt-2 text-sm text-slate-300 leading-relaxed">
+            <p className="mt-2 text-sm leading-relaxed text-slate-300">
               {project.owned}
             </p>
           </div>
         )}
 
-        {/* Optional footer: stack + links (small + skimmable) */}
         {(hasStack || hasLinks) && (
           <div className="mt-6 flex flex-col gap-3">
             {hasStack && (
               <div className="flex flex-wrap gap-2">
                 {project.stack!.map((tag) => (
-                  <span
-                    key={tag}
-                    className="text-xs rounded-full bg-white/5 border border-white/10 px-2 py-1 text-slate-200"
-                  >
-                    {tag}
-                  </span>
+                  <Badge key={tag}>{tag}</Badge>
                 ))}
               </div>
             )}
@@ -137,7 +127,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={l.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-slate-300 hover:text-white underline decoration-white/20 hover:decoration-white/60 transition"
+                    className="text-slate-300 underline decoration-white/20 transition hover:text-white hover:decoration-white/60"
                   >
                     {l.label}
                   </a>
