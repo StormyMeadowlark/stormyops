@@ -1,4 +1,4 @@
-import Timeline from "@/components/Timeline"
+import Timeline from "@/components/marketing/Timeline"
 import type { TimelineMilestone } from "@/types/content"
 
 type ProgressionSectionProps = {

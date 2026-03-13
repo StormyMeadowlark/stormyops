@@ -1,4 +1,5 @@
-import FeatureCard from "@/components/FeatureCard"
+import SectionHeader from "@/components/ui/SectionHeader"
+import FeatureCard from "@/components/marketing/FeatureCard"
 import type { Project } from "@/types/content"
 
 type FeaturedWorkSectionProps = {
@@ -11,14 +12,15 @@ export default function FeaturedWorkSection({
   onOpenProject,
 }: FeaturedWorkSectionProps) {
   return (
-    <section id="work" className="max-w-7xl mx-auto px-6 py-24">
-      <h3 className="text-xl font-semibold text-white">Featured Work</h3>
-      <p className="mt-2 text-slate-400">
-        Production SaaS systems shipped end-to-end — from architecture to deployment.
-      </p>
-      <p className="mt-2 text-slate-400">Tip — click the purple dot to skim.</p>
+    <section id="work" className="mx-auto max-w-7xl px-6 py-24">
+      <SectionHeader
+        title="Featured Work"
+        description="Production SaaS systems shipped end-to-end — from architecture to deployment."
+      />
 
-      <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <p className="mt-2 text-sm text-slate-500">Tip — click the purple dot to skim.</p>
+
+      <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
         {projects.map((project) => (
           <FeatureCard
             key={project.title}

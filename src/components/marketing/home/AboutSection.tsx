@@ -1,4 +1,4 @@
-import FlipCard from "@/components/FlipCard"
+import FlipCard from "@/components/marketing/FlipCard"
 import type { AboutContent } from "@/types/content"
 
 type AboutSectionProps = {

@@ -1,35 +1,51 @@
 @import "tailwindcss";
 
+:root {
+  --background: #05060c;
+  --background-deep: #070b16;
+  --background-soft: #0b1220;
+
+  --accent-primary: #7c3aed;
+  --accent-primary-hover: #6d28d9;
+  --accent-secondary: #3b82f6;
+
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+}
+
+html {
+  background: var(--background);
+}
+
+body {
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text-primary);
+}
+
 .mainbackground-bg {
   background:
-      linear-gradient(90deg,
+    linear-gradient(90deg,
       #080c18 0%,
       #212631 50%,
       #05060c 100%);
 }
 
 .stormyops-bg {
-  /* Base */
   background:
-    /* TOP LEFT: faded blue */
     radial-gradient(900px 600px at 12% 18%,
       rgba(59,130,246,0.45) 0%,
       rgba(59,130,246,0.18) 35%,
       rgba(0,0,0,0) 70%),
-
-    /* TOP RIGHT: faded purple */
     radial-gradient(900px 600px at 78% 22%,
       rgba(139,92,246,0.45) 0%,
       rgba(139,92,246,0.18) 35%,
       rgba(0,0,0,0) 70%),
-
-    /* BOTTOM CENTER: faded slate */
     radial-gradient(900px 600px at 50% 88%,
       rgba(148,163,184,0.20) 0%,
       rgba(148,163,184,0.10) 35%,
       rgba(0,0,0,0) 70%),
-
-    /* Overall dark gradient */
     linear-gradient(135deg,
       #0b1220 0%,
       #070b16 45%,

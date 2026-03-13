@@ -1,4 +1,4 @@
-import CapabilitiesLanes from "@/components/CapabilitiesLanes"
+import CapabilitiesLanes from "@/components/marketing/CapabilitiesLanes"
 import type { CapabilityLane } from "@/types/content"
 
 type CapabilitiesSectionProps = {
