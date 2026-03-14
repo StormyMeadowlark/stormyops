@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
+import Image from "next/image"
 
 const FOCUSABLE_SELECTOR = [
   'a[href]',
@@ -86,7 +87,7 @@ export default function Nav() {
 
       <div className="relative mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         <Link href="/" className="flex items-center gap-3" onClick={close}>
-          <img src="/StormyOps-Logo.png" alt="StormyOps" className="h-16 w-auto" />
+          <Image src="/StormyOps-Logo.png" alt="StormyOps logo" width={160} height={64} className="h-16 w-auto" />
           <span className="text-sm font-medium tracking-wide text-white/90">
             StormyOps
           </span>
@@ -196,7 +197,7 @@ export default function Nav() {
         >
           <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
             <div className="flex items-center gap-3">
-              <img src="/StormyOps-Logo.png" alt="StormyOps" className="h-10 w-auto" />
+              <Image src="/StormyOps-Logo.png" alt="StormyOps Logo"  width={100} height={40} className="h-10 w-auto" />
               <span className="text-sm font-medium tracking-wide text-white/90">
                 StormyOps
               </span>

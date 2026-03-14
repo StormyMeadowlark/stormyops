@@ -21,6 +21,6 @@ export const heroContent: HeroContent = {
     "Skynetrix • VIN Vision • CRM + Sales Systems • Growth + Brand Ops • Data Analytics",
   image: {
     src: "/ashlee.png",
-    alt: "Ashlee Herken",
+    alt: "Portrait of Ashlee Herken",
   },
 }

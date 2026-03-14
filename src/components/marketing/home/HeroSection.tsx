@@ -1,5 +1,6 @@
 import Button from "@/components/ui/Button"
 import type { HeroContent } from "@/types/content"
+import Image from "next/image"
 
 type HeroSectionProps = {
   content: HeroContent
@@ -36,10 +37,9 @@ export default function HeroSection({ content }: HeroSectionProps) {
 
       <div className="relative flex items-end justify-center pb-10">
         <div className="absolute -inset-x-6 inset-y-10 rounded-4xl bg-black/30 blur-md" />
-        <img
+        <Image
           src={content.image.src}
-          alt={content.image.alt}
-          className="relative z-10 max-h-[640px] object-contain"
+          alt={content.image.alt} width={560} height={640} priority className="relative z-10 max-h-[640px] w-auto object-contain"
         />
       </div>
     </section>

@@ -8,7 +8,7 @@ export const aboutContent: AboutContent = {
   ],
   image: {
     src: "/ashlee-seated.png",
-    alt: "Ashlee Herken seated",
+    alt: "Ashlee Herken seated for the StormyOps about section",
   },
   cards: [
     {

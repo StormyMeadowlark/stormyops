@@ -2,6 +2,7 @@ import FlipCard from "@/components/marketing/FlipCard"
 import Section from "@/components/ui/Section"
 import SectionHeader from "@/components/ui/SectionHeader"
 import type { AboutContent } from "@/types/content"
+import Image from "next/image"
 
 type AboutSectionProps = {
   content: AboutContent
@@ -15,9 +16,9 @@ export default function AboutSection({ content }: AboutSectionProps) {
           <div className="absolute -inset-6 rounded-3xl bg-gradient-to-br from-blue-500/15 via-slate-950/30 to-violet-500/15 blur-2xl" />
 
           <div className="relative rounded-3xl p-6">
-            <img
+            <Image
               src={content.image.src}
-              alt={content.image.alt}
+              alt={content.image.alt} width={420} height={560}
               className="max-h-[560px] w-auto object-contain"
             />
           </div>
