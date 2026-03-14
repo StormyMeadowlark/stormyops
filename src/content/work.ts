@@ -2,7 +2,7 @@ import type { Project } from "@/types/content"
 
 export const projects: Project[] = [
   {
-    slug: "kynetrix",
+    slug: "skynetrix",
     title: "Skynetrix: Multi-Tenant SaaS Backend Architecture",
     description:
       "Designed and implemented a backend-first multi-tenant SaaS architecture for automotive shop operations. Built JWT-based RBAC, usage-based billing, Stripe payment orchestration, and Dockerized services with an early-stage Heroku deployment.",
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     stack: ["Node", "Express", "MongoDB", "Redis", "BullMQ", "Stripe", "Docker", "Heroku"],
   },
   {
-    slug: "VIN-vision",
+    slug: "vin-vision",
     title: "VIN Vision: VIN OCR & Decode Automation Service",
     description:
       "Built a VIN extraction and decoding service that converts uploaded vehicle images into structured vehicle data using Google Cloud Vision API and the NHTSA VIN Decoder API.",
@@ -66,7 +66,7 @@ export const projects: Project[] = [
     stack: ["JavaScript", "Node", "Google Cloud Vision API", "NHTSA API", "Multer"],
   },
   {
-    slug: "HEM",
+    slug: "hem",
     title: "HEM Systems: Full-Stack Marketing & Inventory Platform",
     description:
       "Designed and deployed a full-stack marketing website and authenticated admin system for managing live vehicle inventory, customer inquiries, and operational workflows.",

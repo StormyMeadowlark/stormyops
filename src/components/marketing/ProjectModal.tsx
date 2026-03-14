@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useRef } from "react"
 import Badge from "@/components/ui/Badge"
 import { cn } from "@/lib/utils/cn"
 import { surfaceStyles } from "@/styles/tokens"
@@ -11,14 +11,79 @@ type ProjectModalProps = {
   onClose: () => void
 }
 
+const FOCUSABLE_SELECTOR = [
+  'a[href]',
+  'button:not([disabled])',
+  'textarea:not([disabled])',
+  'input:not([disabled])',
+  'select:not([disabled])',
+  '[tabindex]:not([tabindex="-1"])',
+].join(",")
+
 export default function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const modalRef = useRef<HTMLDivElement | null>(null)
+  const closeButtonRef = useRef<HTMLButtonElement | null>(null)
+  const previouslyFocusedRef = useRef<HTMLElement | null>(null)
+
   useEffect(() => {
-    const handleEscape = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose()
+    if (!project) return
+
+    previouslyFocusedRef.current = document.activeElement as HTMLElement | null
+
+    const previousOverflow = document.body.style.overflow
+    document.body.style.overflow = "hidden"
+
+    closeButtonRef.current?.focus()
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        e.preventDefault()
+        onClose()
+        return
+      }
+
+      if (e.key !== "Tab") return
+
+      const container = modalRef.current
+      if (!container) return
+
+      const focusable = Array.from(
+        container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      ).filter((el) => {
+        return !el.hasAttribute("disabled") && el.tabIndex !== -1
+      })
+
+      if (focusable.length === 0) {
+        e.preventDefault()
+        container.focus()
+        return
+      }
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      const active = document.activeElement as HTMLElement | null
+
+      if (e.shiftKey) {
+        if (active === first || !container.contains(active)) {
+          e.preventDefault()
+          last.focus()
+        }
+      } else {
+        if (active === last) {
+          e.preventDefault()
+          first.focus()
+        }
+      }
     }
-    window.addEventListener("keydown", handleEscape)
-    return () => window.removeEventListener("keydown", handleEscape)
-  }, [onClose])
+
+    document.addEventListener("keydown", handleKeyDown)
+
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener("keydown", handleKeyDown)
+      previouslyFocusedRef.current?.focus()
+    }
+  }, [project, onClose])
 
   if (!project) return null
 
@@ -32,20 +97,26 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-6 backdrop-blur-sm"
       onClick={onClose}
+      aria-hidden={false}
     >
       <div
+        ref={modalRef}
         className={cn(
           surfaceStyles.modal,
-          "max-h-[calc(100vh-3rem)] w-full max-w-3xl overflow-y-auto p-8"
+          "max-h-[calc(100vh-3rem)] w-full max-w-3xl overflow-y-auto p-8 outline-none"
         )}
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
-        aria-label={`${project.title} quick view`}
+        aria-labelledby="project-modal-title"
+        tabIndex={-1}
       >
         <div className="flex items-start justify-between gap-6">
           <div className="min-w-0">
-            <h2 className="truncate text-2xl font-semibold text-white">
+            <h2
+              id="project-modal-title"
+              className="truncate text-2xl font-semibold text-white"
+            >
               {project.title}
             </h2>
 
@@ -59,9 +130,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           </div>
 
           <button
+            ref={closeButtonRef}
             onClick={onClose}
             aria-label="Close modal"
-            className="shrink-0 rounded-xl border border-white/10 bg-white/5 p-2 text-slate-200 transition hover:bg-white/10"
+            className="shrink-0 rounded-xl border border-white/10 bg-white/5 p-2 text-slate-200 transition hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:ring-offset-slate-950"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -127,7 +199,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                     href={l.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="text-slate-300 underline decoration-white/20 transition hover:text-white hover:decoration-white/60"
+                    className="text-slate-300 underline decoration-white/20 transition hover:text-white hover:decoration-white/60 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2 focus:ring-offset-slate-950"
                   >
                     {l.label}
                   </a>
