@@ -12,10 +12,20 @@ export type ProjectLink = {
   href: string
 }
 
+export type ProjectCategory =
+  | "featured-systems"
+  | "product-platform-builds"
+  | "websites"
+  | "brand-marketing"
+
 export type Project = {
   slug: string
   title: string
   description: string
+  category: ProjectCategory
+  cardDescription?: string
+  featured?: boolean
+  featuredRank?: number
   badges?: Badge[]
   highlights?: ProjectHighlight[]
   owned?: string

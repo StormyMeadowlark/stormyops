@@ -14,9 +14,7 @@ export default function HomePage() {
   return (
     <main className="mainbackground-bg mx-auto min-h-screen text-white">
       <Nav />
-
       <HeroSection content={heroContent} />
-
       <FeaturedWorkSectionClient projects={projects} />
 
       <div className="relative">

@@ -4,6 +4,7 @@ export const projects: Project[] = [
   {
     slug: "skynetrix",
     title: "Skynetrix: Multi-Tenant SaaS Backend Architecture",
+    category: "featured-systems",
     description:
       "Designed and implemented a backend-first multi-tenant SaaS architecture for automotive shop operations. Built JWT-based RBAC, usage-based billing, Stripe payment orchestration, and Dockerized services with an early-stage Heroku deployment.",
     badges: [
@@ -33,6 +34,7 @@ export const projects: Project[] = [
   },
   {
     slug: "vin-vision",
+    category: "featured-systems",
     title: "VIN Vision: VIN OCR & Decode Automation Service",
     description:
       "Built a VIN extraction and decoding service that converts uploaded vehicle images into structured vehicle data using Google Cloud Vision API and the NHTSA VIN Decoder API.",
@@ -68,6 +70,7 @@ export const projects: Project[] = [
   {
     slug: "hem",
     title: "HEM Systems: Full-Stack Marketing & Inventory Platform",
+    category: "featured-systems",
     description:
       "Designed and deployed a full-stack marketing website and authenticated admin system for managing live vehicle inventory, customer inquiries, and operational workflows.",
     badges: [
@@ -119,6 +122,7 @@ export const projects: Project[] = [
   {
     slug: "growth-ops",
     title: "Growth Ops: Full-Funnel Marketing & Revenue Attribution",
+    category:"brand-marketing",
     description:
       "Led end-to-end marketing strategy and execution for HEM Automotive, serving as the sole marketing function responsible for brand identity, paid acquisition, content, and revenue tracking.",
     badges: [
