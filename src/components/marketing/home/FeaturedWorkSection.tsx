@@ -29,7 +29,7 @@ export default function FeaturedWorkSection({
             key={project.slug}
             slug={project.slug}
             title={project.title}
-            description={project.description}
+            description={project.cardDescription ?? project.description}
             badges={project.badges?.map((badge) => badge.label)}
             onOpen={() => onOpenProject(project)}
           />

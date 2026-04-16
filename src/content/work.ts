@@ -7,6 +7,8 @@ export const projects: Project[] = [
     category: "featured-systems",
     description:
       "Designed and implemented a backend-first multi-tenant SaaS architecture for automotive shop operations. Built JWT-based RBAC, usage-based billing, Stripe payment orchestration, and Dockerized services with an early-stage Heroku deployment.",
+    featured: true,
+    featuredRank: 1,
     badges: [
       { label: "Multi-Tenant SaaS" },
       { label: "JWT RBAC" },
@@ -38,6 +40,8 @@ export const projects: Project[] = [
     title: "VIN Vision: VIN OCR & Decode Automation Service",
     description:
       "Built a VIN extraction and decoding service that converts uploaded vehicle images into structured vehicle data using Google Cloud Vision API and the NHTSA VIN Decoder API.",
+    featured: true,
+    featuredRank: 2,
     badges: [
       { label: "Google Cloud Vision API" },
       { label: "Image Preprocessing" },
@@ -73,6 +77,8 @@ export const projects: Project[] = [
     category: "featured-systems",
     description:
       "Designed and deployed a full-stack marketing website and authenticated admin system for managing live vehicle inventory, customer inquiries, and operational workflows.",
+    featured: true,
+    featuredRank: 3,
     badges: [
       { label: "Full-Stack MERN" },
       { label: "JWT Authentication" },
@@ -125,6 +131,8 @@ export const projects: Project[] = [
     category:"brand-marketing",
     description:
       "Led end-to-end marketing strategy and execution for HEM Automotive, serving as the sole marketing function responsible for brand identity, paid acquisition, content, and revenue tracking.",
+    featured: true,
+    featuredRank: 4,
     badges: [
       { label: "Paid Acquisition" },
       { label: "Revenue Attribution" },
