@@ -13,24 +13,83 @@ export type ProjectLink = {
 }
 
 export type ProjectCategory =
-  | "featured-systems"
-  | "product-platform-builds"
-  | "websites"
-  | "brand-marketing"
+  | "systems-architecture"
+  | "implementation-operations"
+  | "product-tools"
+  | "client-websites"
+  | "brand-validation"
 
-export type Project = {
+export type ProjectSummary = {
   slug: string
   title: string
+  subtitle?: string
   description: string
   category: ProjectCategory
   cardDescription?: string
   featured?: boolean
   featuredRank?: number
   badges?: Badge[]
+  implementationFocus?: string
   highlights?: ProjectHighlight[]
   owned?: string
   stack?: string[]
   links?: ProjectLink[]
+}
+
+export type CaseStudy = {
+  slug: string
+
+  status?: "Complete" | "In Progress" | "Validation"
+
+  implementation: {
+    role: string
+    problem: string
+    approach: string
+    constraints?: string[]
+    tradeoffs?: string[]
+    outcome?: string
+  }
+
+  overview?: {
+    whatItIs: string
+    whoItIsFor: string
+    whatIOwned: string[]
+  }
+
+  execution?: {
+    title: string
+    body?: string
+    items?: {
+      title: string
+      body: string
+    }[]
+  }[]
+
+  workflows?: {
+    title: string
+    steps: string[]
+  }[]
+
+  results?: {
+    title: string
+    body: string
+  }[]
+
+  reflection?: {
+    whatWorked?: string[]
+    whatIWouldImprove?: string[]
+    keyTakeaway?: string
+  }
+
+  visuals?: {
+    title: string
+    description?: string
+    images: {
+      src: string
+      alt: string
+      caption?: string
+    }[]
+  }[]
 }
 
 export type HeroContent = {

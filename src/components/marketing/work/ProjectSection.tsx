@@ -1,11 +1,11 @@
 import FeatureCard from "@/components/marketing/FeatureCard"
 import SectionHeader from "@/components/ui/SectionHeader"
-import type { Project } from "@/types/content"
+import type { ProjectSummary } from "@/types/content"
 
 type ProjectSectionProps = {
   title: string
   description: string
-  projects: Project[]
+  projects: ProjectSummary[]
   columns?: "two" | "three" | "four"
 }
 
@@ -32,7 +32,9 @@ export default function ProjectSection({
             key={project.slug}
             slug={project.slug}
             title={project.title}
+            subtitle={project.subtitle}
             description={project.cardDescription ?? project.description}
+            implementationFocus={project.implementationFocus}
             badges={project.badges?.map((badge) => badge.label)}
           />
         ))}

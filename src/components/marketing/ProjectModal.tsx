@@ -4,19 +4,19 @@ import { useEffect, useRef } from "react"
 import Badge from "@/components/ui/Badge"
 import { cn } from "@/lib/utils/cn"
 import { surfaceStyles } from "@/styles/tokens"
-import type { Project } from "@/types/content"
+import type { ProjectSummary } from "@/types/content"
 
 type ProjectModalProps = {
-  project: Project | null
+  project: ProjectSummary | null
   onClose: () => void
 }
 
 const FOCUSABLE_SELECTOR = [
-  'a[href]',
-  'button:not([disabled])',
-  'textarea:not([disabled])',
-  'input:not([disabled])',
-  'select:not([disabled])',
+  "a[href]",
+  "button:not([disabled])",
+  "textarea:not([disabled])",
+  "input:not([disabled])",
+  "select:not([disabled])",
   '[tabindex]:not([tabindex="-1"])',
 ].join(",")
 
@@ -49,9 +49,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
       const focusable = Array.from(
         container.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
-      ).filter((el) => {
-        return !el.hasAttribute("disabled") && el.tabIndex !== -1
-      })
+      ).filter((el) => !el.hasAttribute("disabled") && el.tabIndex !== -1)
 
       if (focusable.length === 0) {
         e.preventDefault()
@@ -68,11 +66,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           e.preventDefault()
           last.focus()
         }
-      } else {
-        if (active === last) {
-          e.preventDefault()
-          first.focus()
-        }
+      } else if (active === last) {
+        e.preventDefault()
+        first.focus()
       }
     }
 
@@ -92,6 +88,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
   const hasOwned = Boolean(project.owned?.trim())
   const hasStack = (project.stack?.length ?? 0) > 0
   const hasLinks = (project.links?.length ?? 0) > 0
+  const hasImplementationFocus = Boolean(project.implementationFocus?.trim())
 
   return (
     <div
@@ -115,18 +112,24 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
           <div className="min-w-0">
             <h2
               id="project-modal-title"
-              className="truncate text-2xl font-semibold text-white"
+              className="text-2xl font-semibold text-white"
             >
               {project.title}
             </h2>
 
-            {hasBadges && (
-              <div className="mt-3 flex flex-wrap gap-2">
+            {project.subtitle ? (
+              <p className="mt-1 text-sm font-medium text-slate-400">
+                {project.subtitle}
+              </p>
+            ) : null}
+
+            {hasBadges ? (
+              <div className="mt-4 flex flex-wrap gap-2">
                 {project.badges!.map((b) => (
                   <Badge key={b.label}>{b.label}</Badge>
                 ))}
               </div>
-            )}
+            ) : null}
           </div>
 
           <button
@@ -153,45 +156,71 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         <div className="mt-6">
-          <p className="leading-relaxed text-slate-300">{project.description}</p>
+          <p className="leading-relaxed text-slate-300">
+            {project.description}
+          </p>
         </div>
 
-        {hasHighlights && (
-          <div className="mt-8 grid gap-4 md:grid-cols-3">
-            {project.highlights!.map((h) => (
-              <div
-                key={h.title}
-                className="rounded-xl border border-white/10 bg-white/5 p-4"
-              >
-                <h3 className="text-sm font-semibold text-white">{h.title}</h3>
-                <p className="mt-2 text-xs leading-relaxed text-slate-300">
-                  {h.body}
-                </p>
-              </div>
-            ))}
+        {hasImplementationFocus ? (
+          <div className="mt-8 rounded-2xl border border-violet-400/20 bg-violet-500/10 p-5">
+            <p className="text-xs font-semibold uppercase tracking-wide text-violet-300">
+              Implementation Focus
+            </p>
+            <p className="mt-2 text-sm leading-relaxed text-slate-200">
+              {project.implementationFocus}
+            </p>
           </div>
-        )}
+        ) : null}
 
-        {hasOwned && (
+        {hasHighlights ? (
+          <div className="mt-8">
+            <h3 className="text-sm font-semibold uppercase tracking-wide text-slate-400">
+              Key Work
+            </h3>
+
+            <div className="mt-4 grid gap-4 md:grid-cols-3">
+              {project.highlights!.map((h) => (
+                <div
+                  key={h.title}
+                  className="rounded-xl border border-white/10 bg-white/5 p-4"
+                >
+                  <h4 className="text-sm font-semibold text-white">
+                    {h.title}
+                  </h4>
+                  <p className="mt-2 text-xs leading-relaxed text-slate-300">
+                    {h.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        ) : null}
+
+        {hasOwned ? (
           <div className="mt-8 rounded-xl border border-white/10 bg-gradient-to-r from-blue-500/10 to-violet-500/10 p-5">
             <h3 className="text-sm font-semibold text-white">What I Owned</h3>
             <p className="mt-2 text-sm leading-relaxed text-slate-300">
               {project.owned}
             </p>
           </div>
-        )}
+        ) : null}
 
-        {(hasStack || hasLinks) && (
+        {(hasStack || hasLinks) ? (
           <div className="mt-6 flex flex-col gap-3">
-            {hasStack && (
-              <div className="flex flex-wrap gap-2">
-                {project.stack!.map((tag) => (
-                  <Badge key={tag}>{tag}</Badge>
-                ))}
+            {hasStack ? (
+              <div>
+                <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-slate-500">
+                  Stack / Tools
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {project.stack!.map((tag) => (
+                    <Badge key={tag}>{tag}</Badge>
+                  ))}
+                </div>
               </div>
-            )}
+            ) : null}
 
-            {hasLinks && (
+            {hasLinks ? (
               <div className="flex flex-wrap gap-3 text-xs">
                 {project.links!.map((l) => (
                   <a
@@ -205,9 +234,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   </a>
                 ))}
               </div>
-            )}
+            ) : null}
           </div>
-        )}
+        ) : null}
 
         <p className="mt-6 text-xs text-slate-500">
           Quick overview • Press Esc to close

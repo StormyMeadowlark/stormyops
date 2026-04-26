@@ -1,176 +1,223 @@
-import type { Project } from "@/types/content"
+import type { ProjectSummary } from "@/types/content"
 
-export const projects: Project[] = [
+export const projects: ProjectSummary[] = [
   {
     slug: "skynetrix",
-    title: "Skynetrix: Multi-Tenant SaaS Backend Architecture",
-    category: "featured-systems",
+    title: "Skynetrix",
+    subtitle: "Multi-Tenant Automotive SaaS Backend",
+    category: "systems-architecture",
     description:
-      "Designed and implemented a backend-first multi-tenant SaaS architecture for automotive shop operations. Built JWT-based RBAC, usage-based billing, Stripe payment orchestration, and Dockerized services with an early-stage Heroku deployment.",
+      "Backend-first platform architecture for automotive repair and sales shops, combining tenant management, shop workflows, customer data, usage-based billing, and payments.",
+    cardDescription:
+      "Designed a backend-first SaaS architecture for automotive operations with tenant isolation, RBAC, usage-based billing, and repair workflow modeling.",
     featured: true,
     featuredRank: 1,
+    implementationFocus:
+      "Modeled complex automotive workflows into modular services with tenant-aware data, role-based access, Stripe payments, and usage billing.",
     badges: [
       { label: "Multi-Tenant SaaS" },
-      { label: "JWT RBAC" },
-      { label: "Usage-Based Billing" },
-      { label: "Dockerized Services" },
-      { label: "Stripe Integration" },
+      { label: "RBAC" },
+      { label: "Usage Billing" },
+      { label: "Stripe" },
+      { label: "Microservices" },
     ],
-    highlights: [
-      {
-        title: "Tenant & Role Architecture",
-        body: "Implemented JWT-based RBAC across Platform Admin, Tenant Admin, Admin, Shop, and User roles with tenant-isolated data modeling and centralized API gateway enforcement.",
-      },
-      {
-        title: "Operational Workflow Modeling",
-        body: "Modeled full service lifecycle (job catalog → estimate → quote → repair order → invoice → payment) with vehicle management and shop/group membership structure.",
-      },
-      {
-        title: "Billing & Async Infrastructure",
-        body: "Designed usage-based billing for shops using Redis + BullMQ, integrated Stripe for shop subscriptions, customer charges, and refund processing, and containerized services with Docker for structured deployment.",
-      },
+    stack: ["Node", "Express", "MongoDB", "Redis", "BullMQ", "Stripe", "Docker"],
+  },
+  {
+    slug: "stormyops-cms",
+    title: "StormyOps CMS",
+    subtitle: "Rules-Driven Content Management System",
+    category: "systems-architecture",
+    description:
+      "A configurable CMS designed around publishing readiness, SEO validation, scheduling, media handling, comments, and settings-driven behavior.",
+    cardDescription:
+      "Built a rules-driven CMS where publishing, validation, SEO, scheduling, and moderation are controlled through configurable system settings.",
+    featured: true,
+    featuredRank: 2,
+    implementationFocus:
+      "Designed the CMS around a validation and settings engine so content readiness is system-controlled instead of manually reviewed.",
+    badges: [
+      { label: "CMS" },
+      { label: "Rules Engine" },
+      { label: "SEO Validation" },
+      { label: "Settings Architecture" },
     ],
-    owned:
-      "Owned system architecture, API gateway design, RBAC enforcement, billing logic, Stripe integration, Redis/BullMQ usage tracking, Dockerization, and initial Heroku deployment.",
-    stack: ["Node", "Express", "MongoDB", "Redis", "BullMQ", "Stripe", "Docker", "Heroku"],
+    stack: ["Next.js", "Tailwind", "Node", "Express", "MongoDB"],
+  },
+  {
+    slug: "vehicle-inventory-system",
+    title: "Vehicle Inventory Management System",
+    subtitle: "Custom Online Inventory Pipeline",
+    category: "systems-architecture",
+    description:
+      "A custom inventory workflow for adding, storing, and displaying vehicles for sale on an automotive business website.",
+    cardDescription:
+      "Built a MERN-based vehicle inventory system with admin intake, image uploads, cloud storage, and dynamic public listings.",
+    implementationFocus:
+      "Turned manual vehicle page creation into a repeatable listing pipeline with backend storage, image handling, and frontend rendering.",
+    badges: [
+      { label: "MERN" },
+      { label: "Inventory Workflow" },
+      { label: "Image Uploads" },
+      { label: "DigitalOcean" },
+    ],
+    stack: ["React", "Vite", "Node", "Express", "MongoDB", "Multer", "DigitalOcean"],
   },
   {
     slug: "vin-vision",
-    category: "featured-systems",
-    title: "VIN Vision: VIN OCR & Decode Automation Service",
+    title: "VIN Vision",
+    subtitle: "VIN OCR & Decode Automation",
+    category: "systems-architecture",
     description:
-      "Built a VIN extraction and decoding service that converts uploaded vehicle images into structured vehicle data using Google Cloud Vision API and the NHTSA VIN Decoder API.",
-    featured: true,
-    featuredRank: 2,
+      "A backend service that extracts VINs from uploaded vehicle images and decodes them into structured vehicle data.",
+    cardDescription:
+      "Built an OCR pipeline that processes VIN images, extracts the 17-character VIN, and decodes vehicle data through the NHTSA API.",
+    implementationFocus:
+      "Automated a high-error manual intake task by connecting image preprocessing, OCR, VIN parsing, and external vehicle data APIs.",
     badges: [
-      { label: "Google Cloud Vision API" },
-      { label: "Image Preprocessing" },
-      { label: "OCR Automation" },
-      { label: "API Integration" },
-      { label: "Backend Service" },
+      { label: "OCR" },
+      { label: "Google Cloud Vision" },
+      { label: "NHTSA API" },
+      { label: "Image Processing" },
     ],
-    highlights: [
-      {
-        title: "Image Preprocessing",
-        body: "Implemented image adjustments (noise reduction, contrast enhancement) prior to OCR to improve VIN recognition accuracy. Required correct image orientation for reliable extraction.",
-      },
-      {
-        title: "Image → VIN Extraction",
-        body: "Processed uploaded vehicle images using Google Cloud Vision OCR to extract VIN characters.",
-      },
-      {
-        title: "VIN Decoding Pipeline",
-        body: "Sent validated VIN to the NHTSA VIN Decoder API to return structured vehicle data including year, make, and model.",
-      },
-      {
-        title: "Service Architecture",
-        body: "Built a modular Node.js service using Multer for file uploads, enabling automated intake integration into backend systems.",
-      },
-    ],
-    owned:
-      "Image preprocessing pipeline, OCR integration, VIN validation logic, NHTSA API orchestration, Multer file handling, and backend service design.",
-    stack: ["JavaScript", "Node", "Google Cloud Vision API", "NHTSA API", "Multer"],
+    stack: ["Node", "Google Cloud Vision API", "NHTSA API", "Multer"],
   },
+
   {
-    slug: "hem",
-    title: "HEM Systems: Full-Stack Marketing & Inventory Platform",
-    category: "featured-systems",
+    slug: "hem-automotive",
+    title: "HEM Automotive",
+    subtitle: "Multi-Channel Growth & Business Systems",
+    category: "implementation-operations",
     description:
-      "Designed and deployed a full-stack marketing website and authenticated admin system for managing live vehicle inventory, customer inquiries, and operational workflows.",
+      "Marketing, website, advertising, content, inventory visibility, and growth systems for an automotive repair and sales business.",
+    cardDescription:
+      "Led marketing, web presence, paid acquisition, content, and early customer retention strategy for an automotive repair and sales shop.",
     featured: true,
     featuredRank: 3,
+    implementationFocus:
+      "Built a growth system from scratch by connecting website conversion paths, social content, paid ads, manual attribution, and customer retention strategy.",
     badges: [
-      { label: "Full-Stack MERN" },
-      { label: "JWT Authentication" },
-      { label: "Admin Dashboard" },
-      { label: "Live Deployment" },
-      { label: "Cloud Storage" },
+      { label: "Growth Strategy" },
+      { label: "Google Ads" },
+      { label: "Revenue Attribution" },
+      { label: "Content Systems" },
     ],
-    highlights: [
-      {
-        title: "Marketing Website + Admin System",
-        body: "Built a public-facing vehicle sales website with authenticated JWT-based RBAC backend allowing admins to securely log in and manage inventory listings.",
-      },
-      {
-        title: "Vehicle Inventory Workflow",
-        body: "Implemented vehicle lifecycle management with CRUD operations, state transitions, and controlled listing updates.",
-      },
-      {
-        title: "Image Upload & Cloud Storage",
-        body: "Integrated Multer for file uploads with enforced limits (max 40 files and size restrictions), storing vehicle images on a DigitalOcean Droplet.",
-      },
-      {
-        title: "Contact & Email Automation",
-        body: "Built contact form submission pipeline using Nodemailer and SendGrid for transactional messaging and inquiry routing.",
-      },
-      {
-        title: "Deployment & Monitoring",
-        body: "Deployed frontend and backend via Heroku and Firebase, integrated Google Analytics for traffic and engagement tracking.",
-      },
+    stack: ["Google Ads", "Facebook", "TikTok", "Google Analytics", "Copywriting"],
+  },
+
+  {
+    slug: "signalscout",
+    title: "SignalScout",
+    subtitle: "SEO & Engagement Readiness Scanner",
+    category: "product-tools",
+    description:
+      "A URL analysis tool that evaluates SEO, content quality, Open Graph data, and social share readiness.",
+    cardDescription:
+      "Built a URL scanner that turns manual SEO and social preview checks into a repeatable analysis workflow with scores and recommendations.",
+    implementationFocus:
+      "Designed a rules-based scan flow that fetches page data, parses metadata, scores readiness, and returns actionable content recommendations.",
+    badges: [
+      { label: "SEO Analysis" },
+      { label: "Open Graph" },
+      { label: "Cheerio" },
+      { label: "AI Recommendations" },
     ],
-    owned:
-      "End-to-end system design including frontend UI, backend API development, JWT authentication, file upload handling, cloud storage integration, email automation, analytics tracking, and production deployment.",
-    stack: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JWT",
-      "Multer",
-      "DigitalOcean",
-      "Heroku",
-      "Firebase",
-      "SendGrid",
-      "Nodemailer",
-      "Google Analytics",
+    stack: ["Next.js", "TypeScript", "Node", "Express", "PostgreSQL", "Prisma", "Cheerio"],
+  },
+  {
+    slug: "resume-writer",
+    title: "Resume Writer",
+    subtitle: "AI Resume & Hiring Utility",
+    category: "product-tools",
+    description:
+      "An AI-assisted tool that turns raw experience and job descriptions into targeted resumes, cover letters, and job descriptions.",
+    cardDescription:
+      "Built an AI-assisted resume and cover letter generator designed for automotive job seekers and shop hiring workflows.",
+    implementationFocus:
+      "Created a structured prompt flow that turns messy user input into accurate, job-specific application materials without overstating experience.",
+    badges: [
+      { label: "AI Tooling" },
+      { label: "Prompt Engineering" },
+      { label: "PDF Export" },
+      { label: "Hiring Workflow" },
+    ],
+    stack: ["Next.js", "Tailwind", "Node", "FastAPI", "OpenAI", "PDF Export"],
+  },
+
+  {
+    slug: "dreiling-chiropractic",
+    title: "Dreiling Chiropractic",
+    subtitle: "Custom One-Page Business Website",
+    category: "client-websites",
+    description:
+      "A custom one-page website built to clarify a walk-in-only chiropractic model and establish a new online presence.",
+    cardDescription:
+      "Delivered a custom one-page site under tight budget, timeline, and discovery constraints, with Google Maps and Facebook feed integration.",
+    implementationFocus:
+      "Translated unclear business requirements into a simple website structure that reduced customer confusion around walk-ins, location, and provider continuity.",
+    badges: [
+      { label: "Client Website" },
+      { label: "React + Vite" },
+      { label: "Google Maps" },
+      { label: "Facebook Feed" },
+    ],
+    stack: ["React", "Vite", "Google Maps API", "Facebook Embed", "DNS"],
+  },
+  {
+    slug: "stormy-meadowlark",
+    title: "Stormy Meadowlark",
+    subtitle: "Automotive Marketing Website & Early CMS",
+    category: "client-websites",
+    description:
+      "A marketing site and early blog backend for an automotive growth business focused on helping shops attract and retain customers.",
+    cardDescription:
+      "Built a marketing website with service positioning, contact flows, pricing visibility, and an early markdown-based blog publishing system.",
+    implementationFocus:
+      "Used the project as a first pass at connecting marketing strategy, backend content publishing, and automotive growth positioning.",
+    badges: [
+      { label: "Marketing Site" },
+      { label: "Early CMS" },
+      { label: "MERN" },
+      { label: "Markdown Content" },
+    ],
+    stack: ["React", "Node", "Express", "MongoDB", "Markdown"],
+  },
+
+  {
+    slug: "wedding-saas",
+    title: "Wedding SaaS",
+    subtitle: "Product Validation & Guest Management Concept",
+    category: "brand-validation",
+    description:
+      "An early-stage SaaS concept validated through bride conversations, focused on RSVP chaos, guest communication, and wedding logistics.",
+    cardDescription:
+      "Validated a wedding guest management product concept through customer discovery in Facebook groups and repeated pain-point analysis.",
+    implementationFocus:
+      "Ran discovery before building, identified repeated RSVP and guest management pain, and narrowed the MVP toward a custom wedding site plus RSVP engine.",
+    badges: [
+      { label: "Customer Discovery" },
+      { label: "Validation" },
+      { label: "MVP Scoping" },
+      { label: "Product Strategy" },
     ],
   },
   {
-    slug: "growth-ops",
-    title: "Growth Ops: Full-Funnel Marketing & Revenue Attribution",
-    category:"brand-marketing",
+    slug: "solar-athletics-rebrand",
+    title: "Solar Athletics Rebrand",
+    subtitle: "Brand Refresh & SVG Asset Standardization",
+    category: "brand-validation",
     description:
-      "Led end-to-end marketing strategy and execution for HEM Automotive, serving as the sole marketing function responsible for brand identity, paid acquisition, content, and revenue tracking.",
-    featured: true,
-    featuredRank: 4,
+      "A focused brand refresh for a gymnastics and cheer gym, aligning typography, color, and scalable assets with its space-themed identity.",
+    cardDescription:
+      "Refined typography, color consistency, and logo assets to make the Solar Athletics brand feel more unified, bold, and scalable.",
+    implementationFocus:
+      "Converted inconsistent PNG assets into clean SVGs, corrected brand colors, and aligned typography with the gym’s space-themed identity.",
     badges: [
-      { label: "Paid Acquisition" },
-      { label: "Revenue Attribution" },
-      { label: "Brand Development" },
-      { label: "Full-Funnel Strategy" },
+      { label: "Brand Refresh" },
+      { label: "SVG Conversion" },
+      { label: "Typography" },
+      { label: "Visual Identity" },
     ],
-    highlights: [
-      {
-        title: "Brand & Positioning",
-        body: "Designed company logo, developed brand identity and tagline, wrote all website copy, and established consistent messaging across digital and offline channels.",
-      },
-      {
-        title: "Paid Advertising & Lead Generation",
-        body: "Managed Facebook, Google, and Yelp ad campaigns; optimized targeting and messaging to drive inbound calls and service bookings.",
-      },
-      {
-        title: "Revenue Attribution",
-        body: "Tracked inbound calls and campaign performance to tie specific advertising efforts to increased shop revenue.",
-      },
-      {
-        title: "Content & Social Execution",
-        body: "Produced video content and graphics for YouTube, Facebook, and TikTok; managed social media presence and engagement.",
-      },
-      {
-        title: "Market Research & Planning",
-        body: "Conducted competitive market research and developed marketing plans supporting business relocation and growth strategy.",
-      },
-    ],
-    owned:
-      "Owned brand development, paid media strategy, copywriting, campaign execution, content production, analytics tracking, competitive research, and revenue attribution.",
-    stack: [
-      "Facebook Ads",
-      "Google Ads",
-      "Yelp Ads",
-      "Google Analytics",
-      "Content Production",
-      "Copywriting",
-      "Market Research",
-    ],
+    stack: ["Canva", "Adobe Illustrator"],
   },
 ]

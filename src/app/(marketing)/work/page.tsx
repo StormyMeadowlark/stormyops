@@ -1,7 +1,7 @@
 import Nav from "@/components/marketing/Nav"
 import ProjectSection from "@/components/marketing/work/ProjectSection"
 import { projects } from "@/content/work"
-import type { Project, ProjectCategory } from "@/types/content"
+import type { ProjectCategory, ProjectSummary } from "@/types/content"
 
 const sectionConfig: Array<{
   key: ProjectCategory
@@ -10,36 +10,43 @@ const sectionConfig: Array<{
   columns: "two" | "three"
 }> = [
   {
-    key: "featured-systems",
-    title: "Featured Systems",
+    key: "systems-architecture",
+    title: "Systems Architecture",
     description:
-      "Core systems that show architecture, implementation depth, and product thinking.",
+      "Backend-heavy systems, workflow logic, integrations, and scalable platform foundations.",
     columns: "two",
   },
   {
-    key: "product-platform-builds",
-    title: "Product & Platform Builds",
+    key: "implementation-operations",
+    title: "Implementation & Operations",
     description:
-      "Smaller product experiments, utility builds, and backend-heavy implementation work.",
+      "Projects that translate messy business needs into working systems, workflows, and measurable execution.",
+    columns: "two",
+  },
+  {
+    key: "product-tools",
+    title: "Product Tools",
+    description:
+      "Focused tools that turn manual, high-friction workflows into guided, repeatable systems.",
     columns: "three",
   },
   {
-    key: "websites",
-    title: "Websites",
+    key: "client-websites",
+    title: "Client Websites",
     description:
-      "Client-facing sites built to communicate trust, clarify value, and convert visitors into action.",
+      "Custom sites built to clarify positioning, communicate trust, and support real business goals.",
     columns: "three",
   },
   {
-    key: "brand-marketing",
-    title: "Brand Identity / Marketing",
+    key: "brand-validation",
+    title: "Brand & Product Validation",
     description:
-      "Work centered on positioning, narrative, refreshes, and turning strategy into visible brand systems.",
+      "Work focused on positioning, visual identity, customer discovery, and early product direction.",
     columns: "two",
   },
 ]
 
-function getProjectsByCategory(category: ProjectCategory): Project[] {
+function getProjectsByCategory(category: ProjectCategory): ProjectSummary[] {
   return projects.filter((project) => project.category === category)
 }
 
@@ -56,13 +63,13 @@ export default function WorkPage() {
             </p>
 
             <h1 className="text-4xl font-bold text-white md:text-5xl">
-              Work built across systems, products, websites, and growth.
+              Work built across systems, implementation, products, and growth.
             </h1>
 
             <p className="mt-4 max-w-2xl text-slate-300 leading-relaxed">
               Explore the projects behind my portfolio — from multi-tenant SaaS
-              architecture and operational systems to websites, automation, and
-              marketing execution.
+              architecture and operational workflows to product tools, client
+              sites, brand systems, and validation work.
             </p>
           </div>
         </section>

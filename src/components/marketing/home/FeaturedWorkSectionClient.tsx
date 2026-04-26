@@ -3,16 +3,16 @@
 import { useState } from "react"
 import FeaturedWorkSection from "@/components/marketing/home/FeaturedWorkSection"
 import ProjectModal from "@/components/marketing/ProjectModal"
-import type { Project } from "@/types/content"
+import type { ProjectSummary } from "@/types/content"
 
 type FeaturedWorkSectionClientProps = {
-  projects: Project[]
+  projects: ProjectSummary[]
 }
 
 export default function FeaturedWorkSectionClient({
   projects,
 }: FeaturedWorkSectionClientProps) {
-  const [activeProject, setActiveProject] = useState<Project | null>(null)
+  const [activeProject, setActiveProject] = useState<ProjectSummary | null>(null)
 
   return (
     <>

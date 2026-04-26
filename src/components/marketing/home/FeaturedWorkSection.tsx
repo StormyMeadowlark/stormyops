@@ -1,11 +1,11 @@
 import Section from "@/components/ui/Section"
 import SectionHeader from "@/components/ui/SectionHeader"
 import FeatureCard from "@/components/marketing/FeatureCard"
-import type { Project } from "@/types/content"
+import type { ProjectSummary } from "@/types/content"
 
 type FeaturedWorkSectionProps = {
-  projects: Project[]
-  onOpenProject: (project: Project) => void
+  projects: ProjectSummary[]
+  onOpenProject: (project: ProjectSummary) => void
 }
 
 export default function FeaturedWorkSection({
