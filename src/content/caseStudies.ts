@@ -1037,25 +1037,68 @@ export const caseStudies: CaseStudy[] = [
 
     visuals: [
       {
+        title: "Discovery",
+        description:
+          "Screenshots of the discovery form.",
+        images: [
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Discovery-1.png",
+            alt: "Introduction of the discovery questions",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Discovery-2.png",
+            alt: "First page of the discovery questions",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Discovery-3.png",
+            alt: "Second page of the discovery questions",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Discovery-4.png",
+            alt: "Third page of the discovery questions",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Discovery-5.png",
+            alt: "Fourth page of the discovery questions",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Discovery-6.png",
+            alt: "Final page of the discovery questions",
+          },
+        ],
+      },
+      {
         title: "Website Design",
         description:
           "Screenshots of the one-page layout showing structure, messaging, and integrations.",
         images: [
           {
-            src: "/images/case-studies/dreiling/homepage.png",
-            alt: "Dreiling Chiropractic homepage",
+            src: "/images/case-studies/dreiling-chiropractic/Dreiling-chiropractic-1.png",
+            alt: "Dreiling Chiropractic hero section",
           },
           {
-            src: "/images/case-studies/dreiling/services.png",
-            alt: "Dreiling Chiropractic services section",
+            src: "/images/case-studies/dreiling-chiropractic/Dreiling-chiropractic-7.png",
+            alt: "Dreiling Chiropractic first part of services section",
           },
           {
-            src: "/images/case-studies/dreiling/map.png",
-            alt: "Google Maps integration",
+            src: "/images/case-studies/dreiling-chiropractic/Dreiling-chiropractic-8.png",
+            alt: "Dreiling Chiropractic second part of services section",
           },
           {
-            src: "/images/case-studies/dreiling/facebook.png",
+            src: "/images/case-studies/dreiling-chiropractic/Dreiling-chiropractic-10.png",
+            alt: "Google maps integration",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Dreiling-chiropractic-11.png",
             alt: "Facebook feed integration",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Dreiling-chiropractic-12.png",
+            alt: "Google reviews integration",
+          },
+          {
+            src: "/images/case-studies/dreiling-chiropractic/Dreiling-chiropractic-13.png",
+            alt: "Footer",
           },
         ],
       },
@@ -1226,35 +1269,6 @@ export const caseStudies: CaseStudy[] = [
       keyTakeaway:
         "VIN Vision reinforced how small automation systems can remove high-friction manual tasks, and how combining multiple APIs into a single workflow creates real operational efficiency.",
     },
-
-    visuals: [
-      {
-        title: "VIN Extraction Process",
-        description:
-          "Examples of VIN images and OCR extraction output.",
-        images: [
-          {
-            src: "/images/case-studies/vin-vision/vin-image.png",
-            alt: "VIN image input",
-          },
-          {
-            src: "/images/case-studies/vin-vision/ocr-output.png",
-            alt: "OCR extraction output",
-          },
-        ],
-      },
-      {
-        title: "Decoded Vehicle Data",
-        description:
-          "Structured data returned from the NHTSA API.",
-        images: [
-          {
-            src: "/images/case-studies/vin-vision/api-response.png",
-            alt: "NHTSA API response",
-          },
-        ],
-      },
-    ],
   },
 
   {
@@ -1463,29 +1477,10 @@ export const caseStudies: CaseStudy[] = [
           "Screenshots showing the public inventory overview and individual vehicle listing pages.",
         images: [
           {
-            src: "/images/case-studies/vehicle-inventory/inventory-overview.png",
+            src: "/images/case-studies/hem/HEM_Vehicle_Inventory_Page.PNG",
             alt: "Vehicle inventory overview page",
             caption:
               "Public-facing inventory overview showing available vehicles.",
-          },
-          {
-            src: "/images/case-studies/vehicle-inventory/vehicle-detail.png",
-            alt: "Individual vehicle detail page",
-            caption:
-              "Templated vehicle detail page rendered from backend data.",
-          },
-        ],
-      },
-      {
-        title: "Admin Intake Flow",
-        description:
-          "Screenshots of the admin workflow used to add vehicle details and images.",
-        images: [
-          {
-            src: "/images/case-studies/vehicle-inventory/admin-add-vehicle.png",
-            alt: "Admin add vehicle form",
-            caption:
-              "Admin form used to add vehicle details and upload images.",
           },
         ],
       },
@@ -1708,35 +1703,6 @@ export const caseStudies: CaseStudy[] = [
       keyTakeaway:
         "Resume Writer showed that AI is only useful when paired with structured input and controlled output. Without constraints, AI generates noise—this system turns it into a practical tool.",
     },
-
-    visuals: [
-      {
-        title: "Resume Builder Interface",
-        description:
-          "Screens showing the guided input flow and generation interface.",
-        images: [
-          {
-            src: "/images/case-studies/resume-writer/input-form.png",
-            alt: "Resume builder input form",
-          },
-          {
-            src: "/images/case-studies/resume-writer/output-preview.png",
-            alt: "Generated resume preview",
-          },
-        ],
-      },
-      {
-        title: "PDF Output",
-        description:
-          "Examples of exported resumes and cover letters.",
-        images: [
-          {
-            src: "/images/case-studies/resume-writer/pdf-output.png",
-            alt: "Resume PDF export",
-          },
-        ],
-      },
-    ],
   },
 
   {
@@ -1916,31 +1882,6 @@ export const caseStudies: CaseStudy[] = [
       keyTakeaway:
         "Stormy Meadowlark showed that building content systems is not just about publishing—it’s about structuring data, workflows, and flexibility in a way that can scale. This project directly led to the creation of StormyOps CMS.",
     },
-
-    visuals: [
-      {
-        title: "Marketing Website",
-        description:
-          "Screens showing the frontend site, service positioning, and layout.",
-        images: [
-          {
-            src: "/images/case-studies/stormy-meadowlark/homepage.png",
-            alt: "Stormy Meadowlark homepage",
-          },
-        ],
-      },
-      {
-        title: "Blog System",
-        description:
-          "Screens showing blog rendering and content structure.",
-        images: [
-          {
-            src: "/images/case-studies/stormy-meadowlark/blog.png",
-            alt: "Stormy Meadowlark blog page",
-          },
-        ],
-      },
-    ],
   },
 
   {
@@ -2096,12 +2037,8 @@ export const caseStudies: CaseStudy[] = [
           "Examples of updated logo assets and vectorized designs.",
         images: [
           {
-            src: "/images/case-studies/solar-athletics/logo-before.png",
-            alt: "Original Solar Athletics logo",
-          },
-          {
-            src: "/images/case-studies/solar-athletics/logo-after.png",
-            alt: "Updated Solar Athletics logo",
+            src: "/images/case-studies/solar-athletics/SolarAthleticsRebrand.png",
+            alt: "Solar Athletics Rebrand",
           },
         ],
       },
@@ -2311,24 +2248,6 @@ export const caseStudies: CaseStudy[] = [
       keyTakeaway:
         "SignalScout showed that raw data isn’t enough—users need structured analysis and clear recommendations. Combining rules with AI turns fragmented checks into a usable system.",
     },
-
-    visuals: [
-      {
-        title: "Scan Interface",
-        description:
-          "Screens showing URL input and scan results.",
-        images: [
-          {
-            src: "/images/case-studies/signalscout/input.png",
-            alt: "SignalScout URL input form",
-          },
-          {
-            src: "/images/case-studies/signalscout/results.png",
-            alt: "SignalScout scan results",
-          },
-        ],
-      },
-    ],
   },
 
   {
@@ -2509,19 +2428,5 @@ export const caseStudies: CaseStudy[] = [
       keyTakeaway:
         "The biggest problems are not always technical—they are operational and emotional. Validating real user pain before building is critical to creating a product that people actually want.",
     },
-
-    visuals: [
-      {
-        title: "Concept Exploration",
-        description:
-          "Early notes and conceptual layouts exploring guest management workflows.",
-        images: [
-          {
-            src: "/images/case-studies/wedding-saas/concept.png",
-            alt: "Wedding SaaS concept notes",
-          },
-        ],
-      },
-    ],
   },
 ]

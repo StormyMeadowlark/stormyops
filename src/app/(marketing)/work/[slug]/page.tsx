@@ -3,6 +3,7 @@ import Nav from "@/components/marketing/Nav"
 import Badge from "@/components/ui/Badge"
 import { projects } from "@/content/work"
 import { caseStudies } from "@/content/caseStudies"
+import VisualGallery from "@/components/marketing/work/VisualGallery"
 
 type ProjectPageProps = {
   params: Promise<{
@@ -246,46 +247,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {/* Visuals */}
         {caseStudy.visuals?.length ? (
-          <section className="mt-10 rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-md">
-            <SectionTitle eyebrow="Visual Proof" title="Screens and artifacts" />
-
-            <div className="mt-8 space-y-10">
-              {caseStudy.visuals.map((group) => (
-                <div key={group.title}>
-                  <h3 className="text-xl font-semibold text-white">
-                    {group.title}
-                  </h3>
-
-                  {group.description ? (
-                    <p className="mt-2 max-w-3xl text-sm leading-relaxed text-slate-300">
-                      {group.description}
-                    </p>
-                  ) : null}
-
-                  <div className="mt-5 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-                    {group.images.map((image) => (
-                      <figure
-                        key={image.src}
-                        className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50"
-                      >
-                        <img
-                          src={image.src}
-                          alt={image.alt}
-                          className="aspect-video w-full object-cover"
-                        />
-
-                        {image.caption ? (
-                          <figcaption className="p-4 text-xs leading-relaxed text-slate-400">
-                            {image.caption}
-                          </figcaption>
-                        ) : null}
-                      </figure>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
+          <VisualGallery groups={caseStudy.visuals} />
         ) : null}
 
         {/* Reflection */}
