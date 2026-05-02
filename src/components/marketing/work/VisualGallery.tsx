@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useMemo, useState } from "react"
+import { useCallback, useEffect, useMemo, useState } from "react"
 import { createPortal } from "react-dom"
 
 type VisualImage = {
@@ -21,48 +21,39 @@ type FlattenedImage = VisualImage & {
 
 export default function VisualGallery({ groups }: { groups: VisualGroup[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null)
-  const [mounted, setMounted] = useState(false)
 
   const images = useMemo<FlattenedImage[]>(() => {
-    let imageNumber = 0
-
     return groups.flatMap((group) =>
-      group.images.map((image) => {
-        return {
-          ...image,
-          groupTitle: group.title,
-        }
-      })
+      group.images.map((image) => ({
+        ...image,
+        groupTitle: group.title,
+      })),
     )
   }, [groups])
 
   const activeImage =
-  typeof activeIndex === "number" ? images[activeIndex] : null
+    typeof activeIndex === "number" ? images[activeIndex] ?? null : null
 
   const activeImageNumber =
-  typeof activeIndex === "number" ? activeIndex + 1 : 0
+    typeof activeIndex === "number" ? activeIndex + 1 : 0
 
-  function closeModal() {
+  const closeModal = useCallback(() => {
     setActiveIndex(null)
-  }
+  }, [])
 
-  function showPrevious() {
+  const showPrevious = useCallback(() => {
     setActiveIndex((current) => {
       if (current === null) return current
       return (current - 1 + images.length) % images.length
     })
-  }
+  }, [images.length])
 
-  function showNext() {
+  const showNext = useCallback(() => {
     setActiveIndex((current) => {
       if (current === null) return current
       return (current + 1) % images.length
     })
-  }
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
+  }, [images.length])
 
   useEffect(() => {
     if (activeIndex === null) return
@@ -80,7 +71,7 @@ export default function VisualGallery({ groups }: { groups: VisualGroup[] }) {
       document.body.style.overflow = ""
       window.removeEventListener("keydown", handleKeyDown)
     }
-  }, [activeIndex, images.length])
+  }, [activeIndex, closeModal, showPrevious, showNext])
 
   if (!groups.length) return null
 
@@ -114,14 +105,16 @@ export default function VisualGallery({ groups }: { groups: VisualGroup[] }) {
                   const imageIndex = images.findIndex(
                     (item) =>
                       item.src === image.src &&
-                      item.groupTitle === group.title
+                      item.groupTitle === group.title,
                   )
 
                   return (
                     <button
                       key={`${group.title}-${image.src}`}
                       type="button"
-                      onClick={() => setActiveIndex(imageIndex)}
+                      onClick={() => {
+                        if (imageIndex >= 0) setActiveIndex(imageIndex)
+                      }}
                       className="mb-5 block w-full break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-slate-950/50 text-left transition hover:-translate-y-1 hover:border-violet-300/40 hover:bg-white/10"
                     >
                       <img
@@ -144,7 +137,7 @@ export default function VisualGallery({ groups }: { groups: VisualGroup[] }) {
         </div>
       </section>
 
-      {mounted && activeImage
+      {activeImage
         ? createPortal(
             <div
               className="fixed inset-0 z-[9999] overflow-y-auto bg-slate-950/95 px-4 py-6 backdrop-blur-md md:px-8"
@@ -224,7 +217,7 @@ export default function VisualGallery({ groups }: { groups: VisualGroup[] }) {
                 ) : null}
               </div>
             </div>,
-            document.body
+            document.body,
           )
         : null}
     </>

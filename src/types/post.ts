@@ -118,7 +118,6 @@ export type CalloutBlock = {
 
 export type DividerBlock = {
   type: "divider"
-  data?: {}
 }
 
 export type ListBlock = {
