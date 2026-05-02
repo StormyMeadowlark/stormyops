@@ -1,17 +1,26 @@
+import type { Metadata } from "next"
+import Nav from "@/components/marketing/Nav"
+import ContactHero from "@/components/marketing/contact/ContactHero"
+import ContactForm from "@/components/marketing/contact/ContactForm"
+import { contactPageContent } from "@/content/contactPage"
+
+export const metadata: Metadata = {
+  title: "Contact | Ashlee Herken",
+  description:
+    "Contact Ashlee Herken about implementation, SaaS onboarding, workflow systems, technical delivery, and portfolio project work.",
+}
+
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-slate-950 px-6 py-10 text-white">
-      <div className="mx-auto max-w-7xl">
-        <p className="text-sm uppercase tracking-[0.3em] text-blue-300">
-          Admin
-        </p>
+    <main className="stormyops-bg min-h-screen text-white">
+      <Nav />
 
-        <h1 className="mt-4 text-4xl font-black">Media Dashboard</h1>
+      <ContactHero hero={contactPageContent.hero} />
 
-        <p className="mt-4 max-w-2xl text-slate-300">
-          Media management dashboard coming soon.
-        </p>
-      </div>
+      <ContactForm
+        formContent={contactPageContent.form}
+        sidePanel={contactPageContent.sidePanel}
+      />
     </main>
   )
 }
