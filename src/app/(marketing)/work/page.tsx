@@ -1,7 +1,14 @@
+import type { Metadata } from "next"
 import Nav from "@/components/marketing/Nav"
 import ProjectSection from "@/components/marketing/work/ProjectSection"
 import { projects } from "@/content/work"
 import type { ProjectCategory, ProjectSummary } from "@/types/content"
+
+export const metadata: Metadata = {
+  title: "Work | Ashlee Herken",
+  description:
+    "Explore Ashlee Herken's technical implementation, workflow systems, and product delivery case studies.",
+}
 
 const sectionConfig: Array<{
   key: ProjectCategory

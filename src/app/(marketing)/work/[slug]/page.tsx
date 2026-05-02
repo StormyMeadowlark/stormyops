@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { notFound } from "next/navigation"
 import Nav from "@/components/marketing/Nav"
 import Badge from "@/components/ui/Badge"
@@ -5,10 +6,29 @@ import { projects } from "@/content/work"
 import { caseStudies } from "@/content/caseStudies"
 import VisualGallery from "@/components/marketing/work/VisualGallery"
 
+
+
 type ProjectPageProps = {
   params: Promise<{
     slug: string
   }>
+}
+
+export async function generateMetadata({
+  params,
+}: ProjectPageProps): Promise<Metadata> {
+  const { slug } = await params
+
+  const project = projects.find((item) => item.slug === slug)
+
+  return {
+    title: project
+      ? `${project.title} | Ashlee Herken`
+      : "Project | Ashlee Herken",
+    description:
+      project?.description ??
+      "Explore Ashlee Herken's technical implementation, workflow systems, and product delivery case studies.",
+  }
 }
 
 export default async function ProjectPage({ params }: ProjectPageProps) {
