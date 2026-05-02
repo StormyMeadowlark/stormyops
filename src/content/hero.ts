@@ -10,7 +10,7 @@ export const heroContent: HeroContent = {
     "Built SaaS platforms, automation systems, analytics pipelines, and business infrastructure used in real environments.",
   ctaPrimary: {
     label: "View My Work",
-    href: "#work",
+    href: "/work",
   },
   ctaSecondary: {
     label: "Download Resume",
