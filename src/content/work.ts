@@ -82,7 +82,6 @@ export const projects: ProjectSummary[] = [
     ],
     stack: ["Node", "Google Cloud Vision API", "NHTSA API", "Multer"],
   },
-
   {
     slug: "hem-automotive",
     title: "HEM Automotive",
@@ -104,7 +103,32 @@ export const projects: ProjectSummary[] = [
     ],
     stack: ["Google Ads", "Facebook", "TikTok", "Google Analytics", "Copywriting"],
   },
-
+  {
+    slug: "residential-network-implementation",
+    title: "Residential Network Implementation",
+    subtitle: "Wi-Fi 7 Mesh, DNS & VPN Infrastructure",
+    category: "implementation-operations",
+    description:
+      "A whole-home network implementation combining Wi-Fi 7 mesh coverage, custom Ethernet backhaul, DNS visibility and filtering, guest access, and dedicated VPN routing.",
+    cardDescription:
+      "Rebuilt an underperforming 1 Gig fiber network with Wi-Fi 7 mesh, custom Ethernet backhaul, NextDNS controls, VPN routing, and structured troubleshooting.",
+    implementationFocus:
+      "Turned inconsistent whole-home connectivity into a reliable network by evaluating hardware, designing the topology, installing and testing Ethernet, configuring DNS and VPN services, validating performance, and troubleshooting user-facing failures.",
+    badges: [
+      { label: "Technical Implementation" },
+      { label: "Wi-Fi 7 Mesh" },
+      { label: "DNS" },
+      { label: "VPN Routing" },
+      { label: "Troubleshooting" },
+    ],
+    stack: [
+      "ASUS ZenWiFi BT6",
+      "AT&T Fiber",
+      "NextDNS",
+      "Proton VPN",
+      "Cat6 Ethernet",
+    ],
+  },
   {
     slug: "signalscout",
     title: "SignalScout",

@@ -2429,4 +2429,336 @@ export const caseStudies: CaseStudy[] = [
         "The biggest problems are not always technical—they are operational and emotional. Validating real user pain before building is critical to creating a product that people actually want.",
     },
   },
+  {
+    slug: "residential-network-implementation",
+    status: "Complete",
+
+    implementation: {
+      role:
+        "Planned and implemented a whole-home network redesign after a new 1 Gig fiber installation failed to provide adequate wireless coverage. Owned hardware evaluation, mesh deployment, Ethernet installation and termination, DNS configuration, VPN routing, performance testing, troubleshooting, and ongoing network administration.",
+      problem:
+        "A newly installed AT&T 1 Gig Fiber connection provided strong performance near the gateway but poor coverage across the 2,100 sq. ft. home. The basement workspace dropped to roughly 50 Mbps, while streaming and normal web usage became unreliable in weak coverage areas. The network also lacked the device visibility, guest access, parental controls, DNS management, and routing flexibility desired for the household.",
+      approach:
+        "Evaluated consumer mesh platforms and implemented a two-node ASUS ZenWiFi BT6 Wi-Fi 7 system. Positioned nodes around the physical layout of the house, built and terminated custom Ethernet runs for wired backhaul, created separate network paths for household, guest, and VPN traffic, configured NextDNS for DNS visibility and filtering, and used performance testing and DNS logs to identify and resolve network and client-specific issues.",
+      constraints: [
+        "The AT&T fiber entry point limited where the ISP gateway could be installed.",
+        "The house layout required wireless coverage across a main floor and partially finished basement with floors, HVAC, ductwork, plumbing, appliances, and other physical obstructions.",
+        "Most household devices use older Wi-Fi standards, limiting the performance benefits available from Wi-Fi 7 hardware.",
+        "The desired IoT, child, MLO, guest, and VPN network structure exceeded what was practical to maintain simultaneously with the available consumer mesh configuration.",
+        "The project was implemented independently while learning networking, Ethernet termination, DNS, mesh architecture, and VPN routing during the process.",
+      ],
+      tradeoffs: [
+        "Selected the ASUS ZenWiFi BT6 instead of more expensive BT8 or BT10 hardware because it provided the required configurability within the project budget.",
+        "Used surface-routed Ethernet secured along walls and ceiling edges instead of opening walls or drilling through the house.",
+        "Rolled back dedicated IoT, child, and MLO networks after testing showed that the full segmentation model was not practical with the current hardware configuration.",
+        "Kept advanced routing and privacy functionality on dedicated networks so normal household use remained simple for nontechnical users.",
+      ],
+      outcome:
+        "Established reliable whole-home connectivity, increased basement wireless performance from roughly 50 Mbps to more than 800 Mbps on compatible hardware, created wired mesh backhaul, added centralized DNS visibility and filtering, and implemented a dedicated VPN-routed network for selected devices.",
+    },
+
+    overview: {
+      whatItIs:
+        "A residential network implementation built around AT&T 1 Gig Fiber, a two-node ASUS Wi-Fi 7 mesh system, wired Ethernet backhaul, DNS controls, guest access, and dedicated VPN routing.",
+      whoItIsFor:
+        "A three-person household with roughly 20–25 connected devices including computers, phones, tablets, smart TVs, Google Home devices, a Chromecast, robot vacuums, lighting, and other smart-home devices.",
+      whatIOwned: [
+        "Network requirements and coverage assessment",
+        "Mesh hardware research and selection",
+        "ASUS ZenWiFi BT6 deployment and configuration",
+        "Physical node placement and topology decisions",
+        "Bulk Ethernet routing and termination",
+        "T568B cable termination and cable testing",
+        "Wired mesh backhaul implementation",
+        "SSID and network naming structure",
+        "Guest and experimental network configuration",
+        "NextDNS configuration and DNS monitoring",
+        "DNS troubleshooting and allowlist management",
+        "Proton VPN routing through a dedicated network",
+        "Wireless performance testing across devices and locations",
+        "Household troubleshooting and user support",
+      ],
+    },
+
+    execution: [
+      {
+        title: "Requirements & Hardware Selection",
+        body:
+          "The project began as a coverage problem but expanded into a broader network implementation once the limitations of the ISP-provided wireless environment became clear.",
+        items: [
+          {
+            title: "Baseline Assessment",
+            body:
+              "Tested the new AT&T Fiber connection across the home and found that performance dropped significantly with distance and between floors, reaching roughly 50 Mbps in the basement workspace.",
+          },
+          {
+            title: "Coverage Requirement",
+            body:
+              "Defined whole-home coverage as the primary requirement, with a target of at least roughly 500 Mbps in the basement rather than trying to achieve identical gigabit-class performance on every device.",
+          },
+          {
+            title: "Mesh Evaluation",
+            body:
+              "Compared ASUS ZenWiFi and competing consumer mesh options based on cost, configurability, parental controls, VPN support, DNS options, Wi-Fi 7 capability, and wired backhaul support.",
+          },
+          {
+            title: "Hardware Selection",
+            body:
+              "Selected a two-node ASUS ZenWiFi BT6 system as the best balance between advanced configuration options and the project budget.",
+          },
+        ],
+      },
+      {
+        title: "Mesh Topology & Physical Infrastructure",
+        body:
+          "Designed the physical network around the existing fiber entry point, central household coverage, and the basement workspace.",
+        items: [
+          {
+            title: "Node Placement",
+            body:
+              "Placed the primary mesh node near the kitchen to improve central coverage and the secondary node near the bottom of the basement stairs to serve the lower level and workspace.",
+          },
+          {
+            title: "Wired Backhaul",
+            body:
+              "Connected the mesh nodes using Ethernet so traffic between nodes did not depend entirely on the same wireless environment being improved.",
+          },
+          {
+            title: "Custom Ethernet Runs",
+            body:
+              "Purchased bulk cable and routed approximately 100 feet of Ethernet along walls and ceiling edges, working around cabinets, doors, stairs, and other household constraints without opening walls.",
+          },
+          {
+            title: "Cable Termination",
+            body:
+              "Terminated Ethernet using the T568B standard and tested the completed runs before using them for network traffic.",
+          },
+          {
+            title: "Failure & Retest",
+            body:
+              "The first termination failed the cable tester with a miswire. Inspected the conductor order, removed both connectors, reterminated both ends for additional practice, and retested successfully.",
+          },
+        ],
+      },
+      {
+        title: "Logical Network Design",
+        body:
+          "Created a network structure that separated normal household use from guest and advanced personal configurations while experimenting with additional segmentation.",
+        items: [
+          {
+            title: "Household Network",
+            body:
+              "Used OurHouse as the primary network so household users could connect without needing to understand the underlying network architecture.",
+          },
+          {
+            title: "Guest Access",
+            body:
+              "Created OurHouse_Guest as a separate connection path for visitors and devices that should not require normal household credentials.",
+          },
+          {
+            title: "Advanced Network Convention",
+            body:
+              "Reserved the StormyOps naming convention for experimental or advanced configurations so technical networks were visually distinct from normal household use.",
+          },
+          {
+            title: "Segmentation Experiments",
+            body:
+              "Tested dedicated IoT, child, and MLO networks to explore device separation, parental controls, and Wi-Fi 7 functionality.",
+          },
+          {
+            title: "Architecture Simplification",
+            body:
+              "Removed the IoT, child, and MLO networks when the available network and band configuration made the full segmentation model more complex than the benefit it provided.",
+          },
+        ],
+      },
+      {
+        title: "DNS Visibility & Filtering",
+        body:
+          "Added NextDNS to gain visibility into network requests and introduce configurable filtering and security controls.",
+        items: [
+          {
+            title: "Encrypted DNS",
+            body:
+              "Configured DNS-over-TLS using NextDNS so DNS requests could be handled through an encrypted, policy-controlled resolver.",
+          },
+          {
+            title: "Request Visibility",
+            body:
+              "Used NextDNS logs to inspect requests from household devices and identify blocked domains when applications or websites behaved unexpectedly.",
+          },
+          {
+            title: "Allowlist Management",
+            body:
+              "Built the allowlist incrementally when legitimate services were blocked rather than disabling filtering across the entire network.",
+          },
+          {
+            title: "Future Parental Controls",
+            body:
+              "Created a foundation for applying stricter DNS policies and access controls to child-owned devices as device assignment and policy management are expanded.",
+          },
+        ],
+      },
+      {
+        title: "VPN Routing",
+        body:
+          "Created a dedicated network that allows selected devices to route traffic through Proton VPN without requiring the VPN application to be managed separately on every device.",
+        items: [
+          {
+            title: "Dedicated VPN Network",
+            body:
+              "Created StormyOps_PNW as a separate SSID for devices that should use VPN-routed traffic.",
+          },
+          {
+            title: "Centralized Routing",
+            body:
+              "Configured the network so VPN behavior is selected by joining the dedicated SSID instead of manually enabling and disabling VPN software on each device.",
+          },
+          {
+            title: "Device Flexibility",
+            body:
+              "Allows computers and mobile devices to move between normal household routing and VPN routing by selecting the appropriate network.",
+          },
+        ],
+      },
+      {
+        title: "Performance Testing & Troubleshooting",
+        body:
+          "Used testing across rooms, devices, DNS logs, and network configurations to separate infrastructure problems from client-device limitations and filtering issues.",
+        items: [
+          {
+            title: "Performance Validation",
+            body:
+              "Used Cloudflare and AT&T speed tests across multiple devices and locations to validate coverage and identify performance differences.",
+          },
+          {
+            title: "Basement Improvement",
+            body:
+              "Observed basement wireless performance increase from roughly 50 Mbps before the mesh implementation to more than 800 Mbps on compatible hardware.",
+          },
+          {
+            title: "Client Hardware Diagnosis",
+            body:
+              "Found that older computers continued to report much lower speeds even when modern devices approached gigabit-class wireless performance from the same area, identifying client Wi-Fi hardware as the remaining bottleneck rather than the network itself.",
+          },
+          {
+            title: "DNS Failure Investigation",
+            body:
+              "Used NextDNS logs while reproducing blocked website behavior to correlate failures with filtered requests and determine which domains needed to be allowed.",
+          },
+          {
+            title: "Selective Resolution",
+            body:
+              "Resolved legitimate email-link and streaming failures by adjusting tracking-link behavior and selectively allowlisting required domains instead of removing network-wide DNS protections.",
+          },
+        ],
+      },
+    ],
+
+    workflows: [
+      {
+        title: "Network Implementation Flow",
+        steps: [
+          "Test the ISP-provided network across the house.",
+          "Identify basement coverage and performance as the primary failure point.",
+          "Define whole-home coverage, configurability, DNS visibility, and VPN routing requirements.",
+          "Evaluate mesh hardware and select the ASUS ZenWiFi BT6.",
+          "Install and position the two mesh nodes.",
+          "Build and test custom Ethernet runs.",
+          "Move mesh communication to wired backhaul.",
+          "Configure household, guest, DNS, and VPN behavior.",
+          "Test performance across rooms and client devices.",
+          "Troubleshoot failures and simplify configurations that did not provide enough value.",
+        ],
+      },
+      {
+        title: "Ethernet Build & Validation Flow",
+        steps: [
+          "Measure and route bulk Ethernet cable between network hardware.",
+          "Strip and prepare the cable for termination.",
+          "Arrange conductors using the T568B standard.",
+          "Terminate both ends.",
+          "Test the completed cable.",
+          "Inspect conductor order after the tester reports a miswire.",
+          "Remove and reterminate both connectors.",
+          "Retest until the cable passes.",
+          "Use the validated run for mesh backhaul.",
+        ],
+      },
+      {
+        title: "DNS Troubleshooting Flow",
+        steps: [
+          "User reports that a legitimate site, stream, or link is not functioning.",
+          "Reproduce the behavior on the affected network.",
+          "Compare behavior with another connection when possible.",
+          "Open NextDNS logs while reproducing the failure.",
+          "Identify blocked requests occurring at the same time.",
+          "Adjust the relevant setting or selectively allow the required domain.",
+          "Retest the original user workflow.",
+          "Keep broader filtering enabled once functionality is restored.",
+        ],
+      },
+      {
+        title: "VPN Network Flow",
+        steps: [
+          "Device connects to the normal OurHouse network for standard Internet routing.",
+          "User switches to StormyOps_PNW when VPN routing is desired.",
+          "Traffic from the VPN network is routed through Proton VPN.",
+          "User returns to OurHouse when normal household routing is preferred.",
+        ],
+      },
+    ],
+
+    results: [
+      {
+        title: "Whole-Home Coverage Established",
+        body:
+          "Replaced an ISP wireless setup that performed poorly across the house with a mesh environment capable of serving both the main floor and basement reliably.",
+      },
+      {
+        title: "Basement Performance Increased",
+        body:
+          "Improved basement wireless performance from roughly 50 Mbps to more than 800 Mbps on compatible client hardware, exceeding the original target of approximately 500 Mbps.",
+      },
+      {
+        title: "Wired Mesh Backhaul Built",
+        body:
+          "Installed and terminated custom Ethernet runs to support the mesh system and reduce dependence on wireless communication between nodes.",
+      },
+      {
+        title: "DNS Troubleshooting Capability Added",
+        body:
+          "Introduced request-level DNS visibility that made it possible to diagnose blocked services and resolve legitimate failures without disabling the entire filtering system.",
+      },
+      {
+        title: "Dedicated VPN Routing Implemented",
+        body:
+          "Created a dedicated VPN-routed network that allows selected devices to change routing behavior simply by switching SSIDs.",
+      },
+      {
+        title: "Infrastructure vs. Client Limits Identified",
+        body:
+          "Confirmed that remaining performance differences on older computers were caused by client Wi-Fi hardware rather than inadequate fiber or mesh capacity.",
+      },
+    ],
+
+    reflection: {
+      whatWorked: [
+        "Wired backhaul produced stronger basement performance than the original project target.",
+        "The two-node mesh layout provided enough coverage for the current house without requiring additional access points.",
+        "NextDNS logs turned otherwise vague user complaints into traceable network events.",
+        "Separating normal household networks from advanced StormyOps networks kept the environment easier for nontechnical users.",
+        "Testing from multiple devices helped distinguish network problems from hardware-specific client limitations.",
+      ],
+      whatIWouldImprove: [
+        "Place the ISP gateway in a more central shared location if the physical installation could be redesigned from the beginning.",
+        "Evaluate the number and type of simultaneous network configurations supported by the mesh hardware before purchase.",
+        "Create a formal device inventory and naming convention earlier in the implementation.",
+        "Capture controlled before-and-after benchmarks by room, device, and configuration instead of relying primarily on troubleshooting tests collected during implementation.",
+        "Plan local-device discovery requirements before separating IoT devices so services such as casting and smart-home controls can continue working across network boundaries.",
+      ],
+      keyTakeaway:
+        "This project reinforced that implementation is not just selecting the right hardware. It requires understanding the environment, working within physical and technical constraints, testing assumptions, diagnosing failures, simplifying designs that do not work as expected, and supporting the people who ultimately have to use the system.",
+    },
+  },
 ]
